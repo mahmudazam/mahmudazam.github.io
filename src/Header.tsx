@@ -2,51 +2,86 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
 const HeaderDiv = styled.div`
   width: 100%;
   background: white;
+  padding: 0;
+  margin: 0;
 `
 
 const Nav = styled.span`
-  display: inline-block;
   position: relative;
-  width: 80%;
   margin: 0;
-  padding-top: 1.5em;
+  padding: 0;
+  @media only screen and (min-width: 768px) {
+    display: inline-block;
+    width: 80%;
+    height: 3em;
+  }
+  @media only screen and (max-width: 768px) {
+    display: block;
+    width:100%;
+  }
 `
 
 const Title = styled.span`
-  display: inline-block;
-  width: 20%;
+  @media only screen and (min-width: 768px) {
+    display: inline-flex;
+    width: 20%;
+  }
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    width: 100%;
+    height: 2em;
+  }
+  align-items: center;
+  justify-content: center;
   margin: 0;
-  text-align: center;
   font-size: 1.5em;
   color: black;
   background: transparent;
 `;
 
-const NavItem = styled.span`
-  display: inline-block;
-  width: 8em;
-  height: 2em;
-  text-align: center;
+const NavItem = styled(Link)`
+  @media only screen and (min-width: 768px) {
+    display: inline-flex;
+    width: 8em;
+    height: 3em;
+  }
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    width: 100%;
+    height: 2em;
+  }
+  align-items: center;
+  justify-content: center;
   color: black;
+  background: transparent;
 `;
 
 const Highlighter = styled('span')<{navSeq: number}>`
-  display: inline-block;
-  width: 8em;
   position: absolute;
-  top: 3.5em;
-  left: ${props => props.navSeq * 8}em;
-  transition: left 0.5s;
-  border-bottom: 0.15em solid black;
+  @media only screen and (min-width: 768px) {
+    display: inline-flex;
+    width: 8em;
+    height: 3em;
+    left: ${props => props.navSeq * 8}em;
+    transition: left 0.5s;
+    border-bottom: 0.15em solid black;
+  }
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    width: 100%;
+    height: 2em;
+    top: ${props => props.navSeq * 2}em;
+    transition: top 0.5s;
+    border-left: 0.5em solid black;
+  }
 `;
-
 
 interface NavItemData {
   route : string,
@@ -77,17 +112,16 @@ function Header() {
     <HeaderDiv>
       <Title>Mahmud Azam</Title>
       <Nav>
-      <Highlighter navSeq={currNavSeq} />
-      {NavList.map((navItem) =>
-        <NavLink
-          to={navItem.route}
-          state={currNavSeq}
-          style={{ textDecoration: 'none' }}>
-        {({ isActive }) =>
-          <NavItem>{navItem.text}</NavItem>
-        }
-        </NavLink>
-      )}
+        {NavList.map((navItem) =>
+          <NavItem
+            to={navItem.route}
+            state={currNavSeq}
+            style={{ textDecoration: 'none' }}
+          >
+            {navItem.text}
+          </NavItem>
+        )}
+        <Highlighter navSeq={currNavSeq} />
       </Nav>
     </HeaderDiv>
   );

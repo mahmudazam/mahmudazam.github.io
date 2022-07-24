@@ -13,13 +13,21 @@ const AppDiv = styled.div`
   display: inline-block;
   width: 100%;
   padding: 0em;
+  margin: 0em;
   font-family: "Garamond", serif;
 `;
 
 export const PageDiv = styled.div`
-  padding-left: 20%;
-  padding-right: 20%;
-  padding-top: 5%;
+  @media only screen and (min-width: 768px) {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+  }
+  @media only screen and (max-width: 768px) {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;  
+  }
 `;
 
 
