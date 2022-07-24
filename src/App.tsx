@@ -1,23 +1,39 @@
 
 import React from 'react';
-import './App.css';
 
-import Home from './Home'
+import Contact from './Contact'
+import Header from './Header';
+import Home from './Home';
+import Publications from './Publications';
 
-import { Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import styled from 'styled-components';
+
+const AppDiv = styled.div`
+  display: inline-block;
+  width: 100%;
+  padding: 0em;
+  font-family: "Garamond", serif;
+`;
+
+export const PageDiv = styled.div`
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 5%;
+`;
+
 
 function App() {
   return (
-  <div className="App">
-    <h1>Mahmud Azam</h1>
-    <nav>
-      <Link to='/'>Home</Link> |{' '}
-      <Link to='/publications'>Publications</Link>
-    </nav>
-    <Home />
-  </div>
+    <AppDiv>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/publications' element={<Publications />} />
+        <Route path='/contact' element={<Contact />} />
+      </Routes>
+    </AppDiv>
   );
 }
 
 export default App;
-

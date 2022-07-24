@@ -1,19 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import './App.css';
 import reportWebVitals from './reportWebVitals';
 
-import {
-  BrowserRouter,
-  Link,
-  Routes,
-  Route
-} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 // Components:
-import Home from './Home';
-import Publications from './Publications';
+import App from './App'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -21,17 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
 <BrowserRouter>
 <React.StrictMode>
-<div className='App'>
-  <h1>Mahmud Azam</h1>
-  <nav>
-    <Link to='/'>Home</Link> |{' '}
-    <Link to='/publications'>Publications</Link>
-  </nav>
-  <Routes>
-    <Route path='/' element={<Home />} />
-    <Route path='/publications' element={<Publications />} />
-  </Routes>
-</div>
+<App />
 </React.StrictMode>
 </BrowserRouter>
 );
