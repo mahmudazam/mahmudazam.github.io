@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import {
-  Link,
+  NavLink,
   useLocation
 } from 'react-router-dom';
 import styled, { css } from 'styled-components';
@@ -56,7 +56,7 @@ const Title = styled.span`
   background: transparent;
 `;
 
-const NavItem = styled(Link)`
+const NavItem = styled.span`
   @media only screen and (min-width: 768px) {
     display: inline-flex;
     width: 8em;
@@ -69,8 +69,8 @@ const NavItem = styled(Link)`
   }
   align-items: center;
   justify-content: center;
-  color: black;
   background: transparent;
+  text-decoration: none;
 `;
 
 const Highlighter = styled('span')<{navSeq: number}>`
@@ -81,7 +81,7 @@ const Highlighter = styled('span')<{navSeq: number}>`
     height: 3em;
     left: ${props => props.navSeq * 8}em;
     transition: left 0.5s;
-    border-bottom: 0.15em solid black;
+    border-bottom: 0.25em solid black;
   }
   @media only screen and (max-width: 768px) {
     display: flex;
@@ -92,6 +92,23 @@ const Highlighter = styled('span')<{navSeq: number}>`
     border-left: 0.2em solid black;
     border-bottom: 0.1em solid black;
     border-top: 0.1em solid black;
+  }
+`;
+
+const NavButton = styled.button`
+  position: absolute;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+  @media only screen and (max-width: 768px) {
+    display: block;
+    right: 1em;
+    top: 1em;
+    height: 2.5em;
+    width: 2.5em;
+    background: white;
+    border: 0.1em solid black;
+    border-radius: 0.1em;
   }
 `;
 
@@ -117,23 +134,6 @@ const NavSeq : { [key: string] :  number } = NavList.reduce((
     return next;
   }, {});
 
-const NavButton = styled.button`
-  position: absolute;
-  @media only screen and (min-width: 768px) {
-    display: none;
-  }
-  @media only screen and (max-width: 768px) {
-    display: block;
-    right: 1em;
-    top: 1em;
-    height: 2.5em;
-    width: 2.5em;
-    background: white;
-    border: 0.1em solid black;
-    border-radius: 0.1em;
-  }
-`;
-
 function Header() {
   let currNavSeq = NavSeq[useLocation().pathname];
   let [navtoggle, setNavToggle] = useState(false);
@@ -149,14 +149,17 @@ function Header() {
       <Title>Mahmud Azam</Title>
       <Nav navtoggle={navtoggle}>
         {NavList.map((navItem) =>
-          <NavItem
+          <NavLink
             key={navItem.route}
             to={navItem.route}
-            state={currNavSeq}
-            style={{ textDecoration: 'none' }}
+            style={({ isActive }) => ({
+              textDecoration: 'none',
+              color: isActive ? 'black' : 'grey',
+              fontWeight: isActive ? 'bold' : 'normal'
+            })}
           >
-            {navItem.text}
-          </NavItem>
+            <NavItem>{navItem.text}</NavItem>
+          </NavLink>
         )}
         <Highlighter navSeq={currNavSeq} />
       </Nav>
