@@ -1,19 +1,20 @@
 
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-
-import { Link } from 'react-router-dom';
-
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import {
+  Link,
+  useLocation
+} from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { HiChevronDoubleDown } from 'react-icons/hi';
 
 const HeaderDiv = styled.div`
   width: 100%;
   background: white;
-  padding: 0;
+  padding-top: 0.5em;
   margin: 0;
 `
 
-const Nav = styled.span`
+const Nav = styled.span<{navtoggle : boolean}>`
   position: relative;
   margin: 0;
   padding: 0;
@@ -24,7 +25,16 @@ const Nav = styled.span`
   }
   @media only screen and (max-width: 768px) {
     display: block;
+    ${props => props.navtoggle ? css`
+      max-height: 10em;
+    ` : css`
+      max-height: 0;
+    `}
+    transition: max-height 0.5s;
+    overflow: hidden;
     width:100%;
+    border-top: 0.1em solid black;
+    border-bottom: 0.1em solid black;
   }
 `
 
@@ -79,7 +89,9 @@ const Highlighter = styled('span')<{navSeq: number}>`
     height: 2em;
     top: ${props => props.navSeq * 2}em;
     transition: top 0.5s;
-    border-left: 0.5em solid black;
+    border-left: 0.2em solid black;
+    border-bottom: 0.1em solid black;
+    border-top: 0.1em solid black;
   }
 `;
 
@@ -94,8 +106,7 @@ const NavList : Array<NavItemData> = [
   { route : '/contact', text : 'Contact' }
 ];
 
-const NavSeq : { [key: string] :  number } =
-  NavList.reduce((
+const NavSeq : { [key: string] :  number } = NavList.reduce((
     prev : {[key: string] : number},
     curr : NavItemData,
     index: number
@@ -106,14 +117,40 @@ const NavSeq : { [key: string] :  number } =
     return next;
   }, {});
 
+const NavButton = styled.button`
+  position: absolute;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+  @media only screen and (max-width: 768px) {
+    display: block;
+    right: 1em;
+    top: 1em;
+    height: 2.5em;
+    width: 2.5em;
+    background: white;
+    border: 0.1em solid black;
+    border-radius: 0.1em;
+  }
+`;
+
 function Header() {
   let currNavSeq = NavSeq[useLocation().pathname];
+  let [navtoggle, setNavToggle] = useState(false);
+
   return (
     <HeaderDiv>
+      <NavButton onClick={() => { setNavToggle(!navtoggle);}}>
+        <HiChevronDoubleDown style={{
+          transform : `rotate(${navtoggle ? 180 : 0}deg)`,
+          transition: 'transform 0.5s'
+        }} />
+      </NavButton>
       <Title>Mahmud Azam</Title>
-      <Nav>
+      <Nav navtoggle={navtoggle}>
         {NavList.map((navItem) =>
           <NavItem
+            key={navItem.route}
             to={navItem.route}
             state={currNavSeq}
             style={{ textDecoration: 'none' }}
@@ -128,3 +165,4 @@ function Header() {
 }
 
 export default Header;
+
