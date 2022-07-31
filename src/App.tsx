@@ -14,7 +14,7 @@ const AppDiv = styled.div`
   width: 100%;
   padding: 0em;
   margin: 0em;
-  font-family: "Garamond", serif;
+  font-family: "Palatino", serif;
 `;
 
 export const PageDiv = styled.div`
