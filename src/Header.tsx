@@ -7,6 +7,8 @@ import {
 import styled, { css } from 'styled-components';
 import { HiChevronDoubleDown } from 'react-icons/hi';
 
+import { appRoutes } from './App';
+
 const HeaderDiv = styled.div`
   width: 100%;
   background: white;
@@ -117,11 +119,9 @@ interface NavItemData {
   text : string
 };
 
-const NavList : Array<NavItemData> = [
-  { route : '/', text : 'Home' },
-  { route : '/publications', text : 'Publications' },
-  { route : '/contact', text : 'Contact' }
-];
+const NavList : Array<NavItemData> = appRoutes.map((rt : any) => {
+  return { route : rt.path, text: rt.name };
+});
 
 const NavSeq : { [key: string] :  number } = NavList.reduce((
     prev : {[key: string] : number},

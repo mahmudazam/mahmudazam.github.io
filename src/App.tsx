@@ -2,6 +2,7 @@
 import React from 'react';
 
 import Contact from './Contact'
+import CV from './CV';
 import Header from './Header';
 import Home from './Home';
 import Publications from './Publications';
@@ -30,15 +31,42 @@ export const PageDiv = styled.div`
   }
 `;
 
+export const appRoutes = [
+{
+  path: '/',
+  name: 'Home',
+},
+{
+  path: '/cv',
+  name: 'CV',
+},
+{
+  path: '/publications',
+  name: 'Publications',
+},
+{
+  path: '/contact',
+  name: 'Contact',
+},
+]
+
+const appElements = new Map<string, any>([
+  ['/', <Home />],
+  ['/cv', <CV />],
+  ['/publications', <Publications />],
+  ['/contact', <Contact />],
+]);
+
 
 function App() {
+  console.log(Home)
   return (
     <AppDiv>
       <Header />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/publications' element={<Publications />} />
-        <Route path='/contact' element={<Contact />} />
+        {appRoutes.map((rt) =>
+          <Route key={rt.path} path={rt.path} element={appElements.get(rt.path)} />
+        )}
       </Routes>
     </AppDiv>
   );
