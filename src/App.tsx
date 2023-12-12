@@ -27,10 +27,11 @@ export const PageDiv = styled.div`
     padding-top: 5%;
   }
   @media only screen and (max-width: 768px) {
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 5%;  
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    padding-top: 25%;
   }
+  margin: '0%';
 `;
 
 const appElements = new Map<string, any>([
@@ -45,17 +46,15 @@ function App() {
   return (
     <AppDiv>
       <Header />
-      <div style={{ margin: '0%', padding: '0%', top: '10%' }}>
-        <Routes>
-          {appRoutes.map((rt) =>
-            <Route
-              key={rt.path}
-              path={rt.path}
-              element={appElements.get(rt.path)}
-            />
-          )}
-        </Routes>
-      </div>
+      <Routes>
+        {appRoutes.map((rt) =>
+          <Route
+            key={rt.path}
+            path={rt.path}
+            element={appElements.get(rt.path)}
+          />
+        )}
+      </Routes>
     </AppDiv>
   );
 }

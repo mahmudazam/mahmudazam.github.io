@@ -69,9 +69,10 @@ const LayoutSpan = styled.span<{ small: string, align?: string }>`
 function CV() {
   return (
   <PageDiv>
-  <h3>Education</h3>
+  <div style={{ fontWeight: 'bold' }}>Education</div>
+  <hr style={{ marginTop: '0%' }} />
   {education.map((ed) =>
-    <div key={ed.degree} style={{ marginTop: '11pt' }}>
+    <div key={ed.degree} style={{ marginTop: '0.5em' }}>
       <LayoutSpan small='80%' style={{ fontWeight: 'bold' }}>
         {ed.degree}
       </LayoutSpan>
@@ -82,23 +83,22 @@ function CV() {
           ? `${monthName(ed.end.month)}, ${ed.end.year}`
           : ' present'}
       </LayoutSpan>
-      <hr style={{ marginTop: '0%' }} />
       <div style={{fontStyle: 'italic'}}>{ed.institution}</div>
       <div>Supervisor: {ed.supervisor}</div>
       <div>Thesis: {ed.thesis}</div>
     </div>
   )}
 
-  <h3>Invited Talks</h3>
+  <div style={{ fontWeight: 'bold', marginTop: '1.5em' }}>Invited Talks</div>
+  <hr style={{ marginTop: '0%' }} />
   {invitedTalks.map((talk) =>
-    <div key={talk.title}>
+    <div key={talk.title} style={{ marginTop: '0.5em' }}>
       <LayoutSpan small='80%' style={{ fontWeight: 'bold' }}>
         {talk.title}
       </LayoutSpan>
       <LayoutSpan small='20%' align='end'>
         {monthName(talk.date.month)} {talk.date.day}, {talk.date.year}
       </LayoutSpan>
-      <hr style={{ marginTop: '0%' }} />
       <div style={{ fontStyle: 'italic' }}>
         {talk.event}
       </div>
