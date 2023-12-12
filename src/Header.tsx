@@ -7,7 +7,7 @@ import {
 import styled, { css } from 'styled-components';
 import { HiChevronDoubleDown } from 'react-icons/hi';
 
-import { appRoutes } from './App';
+import { appRoutes } from './structure';
 
 const HeaderDiv = styled.div`
   width: 100%;

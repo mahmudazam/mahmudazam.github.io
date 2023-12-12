@@ -7,6 +7,8 @@ import Header from './Header';
 import Home from './Home';
 import Publications from './Publications';
 
+import { appRoutes } from './structure';
+
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -31,25 +33,6 @@ export const PageDiv = styled.div`
   }
 `;
 
-export const appRoutes = [
-{
-  path: '/',
-  name: 'Home',
-},
-{
-  path: '/cv',
-  name: 'CV',
-},
-{
-  path: '/publications',
-  name: 'Publications',
-},
-{
-  path: '/contact',
-  name: 'Contact',
-},
-]
-
 const appElements = new Map<string, any>([
   ['/', <Home />],
   ['/cv', <CV />],
@@ -59,13 +42,16 @@ const appElements = new Map<string, any>([
 
 
 function App() {
-  console.log(Home)
   return (
     <AppDiv>
       <Header />
       <Routes>
         {appRoutes.map((rt) =>
-          <Route key={rt.path} path={rt.path} element={appElements.get(rt.path)} />
+          <Route
+            key={rt.path}
+            path={rt.path}
+            element={appElements.get(rt.path)}
+          />
         )}
       </Routes>
     </AppDiv>
