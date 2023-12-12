@@ -45,15 +45,17 @@ function App() {
   return (
     <AppDiv>
       <Header />
-      <Routes>
-        {appRoutes.map((rt) =>
-          <Route
-            key={rt.path}
-            path={rt.path}
-            element={appElements.get(rt.path)}
-          />
-        )}
-      </Routes>
+      <div style={{ margin: '0%', padding: '0%', top: '10%' }}>
+        <Routes>
+          {appRoutes.map((rt) =>
+            <Route
+              key={rt.path}
+              path={rt.path}
+              element={appElements.get(rt.path)}
+            />
+          )}
+        </Routes>
+      </div>
     </AppDiv>
   );
 }

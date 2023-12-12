@@ -10,10 +10,14 @@ import { HiChevronDoubleDown } from 'react-icons/hi';
 import { appRoutes } from './structure';
 
 const HeaderDiv = styled.div`
+  position: fixed;
+  z-index: 2;
+  top: 0;
   width: 100%;
   background: white;
   padding-top: 0.5em;
   margin: 0;
+  box-shadow: 0 3px 2px -2px gray;
 `
 
 const Nav = styled.span<{navtoggle : boolean}>`
