@@ -17,12 +17,12 @@ const contacts = [
 {
   mode: 'Email',
   icon: HiOutlineMail,
-  text: 'first name dot last name at mail dot utoronto dot ca'
+  text: 'first name dot last name at usask dot ca'
 },
 {
   mode: 'Discord',
   icon: FaDiscord,
-  text: 'first name pound five seven four zero'
+  text: 'firstnamelastname'
 },
 {
   mode: 'Github',
