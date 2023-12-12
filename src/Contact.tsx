@@ -27,7 +27,8 @@ const contacts = [
 {
   mode: 'Github',
   icon: DiGithubBadge,
-  text: 'github.com/mahmudfasihulazam'
+  text: 'github.com/mahmudfasihulazam',
+  url: 'https://github.com/mahmudfasihulazam',
 }
 ]
 
@@ -38,7 +39,9 @@ function Contact() {
     <div key={index} style={{marginBottom: '1em'}}>
       <contact.icon />
       <span style={{fontWeight: 'bold'}}>{contact.mode}: </span>
-      {contact.text}
+      {(contact.url && <a href={contact.url}>{contact.text}</a>)
+        || contact.text
+      }
     </div>
   )}
   </PageDiv>
