@@ -165,14 +165,6 @@ const awards = [
   }
 },
 {
-  name: 'JP Tremblay Award',
-  authority: 'Department of Computer Science',
-  institution: 'University of Saskatchewan',
-  period: {
-    description: 'Academic years 2018 --- 2019, 2016 --- 2017'
-  }
-},
-{
   name: 'JS & JSG Middleton Scholarship',
   institution: 'University of Saskatchewan',
   currency: 'CA$',
@@ -180,6 +172,14 @@ const awards = [
   period: {
     start: { year: 2019, month: 8, day: 31 },
     end: { year: 2019, month: 12, day: 31 }
+  }
+},
+{
+  name: 'JP Tremblay Award',
+  authority: 'Department of Computer Science',
+  institution: 'University of Saskatchewan',
+  period: {
+    description: 'Academic year 2018 --- 2019'
   }
 },
 {
@@ -211,6 +211,14 @@ const awards = [
   period: {
     start: { year: 2017, month: 5, day: 1 },
     end: { year: 2017, month: 8, day: 31 }
+  }
+},
+{
+  name: 'JP Tremblay Award',
+  authority: 'Department of Computer Science',
+  institution: 'University of Saskatchewan',
+  period: {
+    description: 'Academic year 2016 --- 2017'
   }
 },
 ]
