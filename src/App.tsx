@@ -31,8 +31,8 @@ const fadeIn = keyframes`
 
 export const PageDiv = styled.div`
   @media only screen and (min-width: 768px) {
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 30%;
+    padding-right: 30%;
     padding-top: 11%;
     padding-bottom: 7.5%;
   }
@@ -44,6 +44,7 @@ export const PageDiv = styled.div`
   }
   margin: '0%';
   animation: ${fadeIn} 0.5s ease-in-out;
+  text-align: justify;
 `;
 
 const appElements : { [key: string] : any } = {

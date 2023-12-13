@@ -310,9 +310,16 @@ const LargeScreenSpan = styled.span`
   }
 `;
 
+const CVDiv = styled(PageDiv)`
+  @media only screen and (min-width: 768px) {
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+`;
+
 function CV() {
   return (
-  <PageDiv>
+  <CVDiv>
   <div style={{ fontWeight: 'bold' }}>Education</div>
   <hr style={{ marginTop: '0%' }} />
   {education.map((ed, index) =>
@@ -441,7 +448,7 @@ function CV() {
       {a.description && <div>{a.description}</div>}
     </div>
   )}
-  </PageDiv>
+  </CVDiv>
   );
 }
 

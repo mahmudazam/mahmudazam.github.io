@@ -30,7 +30,7 @@ const Nav = styled.span<{navtoggle : boolean}>`
   padding: 0;
   @media only screen and (min-width: 768px) {
     display: inline-block;
-    width: 80%;
+    width: 70%;
     height: 3em;
   }
   @media only screen and (max-width: 768px) {
@@ -51,7 +51,7 @@ const Nav = styled.span<{navtoggle : boolean}>`
 const Title = styled.span`
   @media only screen and (min-width: 768px) {
     display: inline-flex;
-    width: 20%;
+    width: 30%;
   }
   @media only screen and (max-width: 768px) {
     display: flex;
