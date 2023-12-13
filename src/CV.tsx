@@ -12,7 +12,7 @@ const education = [
   end: { year: 2025, month: 7, day: 1 },
   institution: 'University of Saskatchewan',
   supervisor: 'Dr. Steven Rayan',
-  thesis: <Latex>Moduli Stacks and Homotopy Theory (tentative)</Latex>,
+  thesis: 'Moduli Stacks and Homotopy Theory (tentative)',
   completed: false,
 },
 {
@@ -21,7 +21,7 @@ const education = [
   end: { year: 2022, month: 8, day: 1 },
   institution: 'University of Toronto',
   supervisor: 'Dr. Alexander Kupers',
-  thesis: <Latex>Semidirect Products of $\infty$--Operads</Latex>,
+  thesis: 'Semidirect Products of $\\infty$--Operads',
   completed: true,
 },
 {
@@ -30,10 +30,7 @@ const education = [
   end: { year: 2021, month: 7, day: 1 },
   institution: 'University of Saskatchewan',
   supervisor: 'Dr. Steven Rayan',
-  thesis:
-    <Latex>
-      Quantum Information through Topological Quantum Field Theories
-    </Latex>,
+  thesis: 'Quantum Information through Topological Quantum Field Theories',
   completed: true,
 },
 ];
@@ -261,7 +258,7 @@ function CV() {
           : ' present'}
       </LayoutSpan> 
       <div>Supervisor: {ed.supervisor}</div>
-      <div>Thesis: {ed.thesis}</div>
+      <div>Thesis: <Latex>{ed.thesis}</Latex></div>
     </div>
   )}
 
