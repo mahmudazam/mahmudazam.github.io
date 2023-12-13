@@ -1,5 +1,5 @@
 
-import { PageDiv } from './App';
+import BasicPage from './BasicPage';
 
 import styled from 'styled-components';
 
@@ -310,7 +310,7 @@ const LargeScreenSpan = styled.span`
   }
 `;
 
-const CVDiv = styled(PageDiv)`
+const CVDiv = styled(BasicPage)`
   @media only screen and (min-width: 768px) {
     padding-left: 25%;
     padding-right: 25%;

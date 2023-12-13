@@ -1,5 +1,5 @@
 
-import { PageDiv } from './App';
+import BasicPage from './BasicPage';
 
 import {
   DiGithubBadge,
@@ -34,7 +34,7 @@ const contacts = [
 
 function Contact() {
   return (
-  <PageDiv>
+  <BasicPage>
   {contacts.map((contact, index) =>
     <div key={index} style={{marginBottom: '1em'}}>
       <contact.icon />
@@ -44,7 +44,7 @@ function Contact() {
       }
     </div>
   )}
-  </PageDiv>
+  </BasicPage>
   );
 }
 

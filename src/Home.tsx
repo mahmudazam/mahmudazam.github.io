@@ -1,9 +1,9 @@
 
-import { PageDiv } from './App';
+import BasicPage from './BasicPage';
 
 function Home() {
   return (
-  <PageDiv>
+  <BasicPage>
   <p>
   I am a PhD student under Dr. Steven Rayan
   at the University of Saskatchewan.
@@ -31,7 +31,7 @@ function Home() {
   music. I am also interested archery, parkour and rock climbing, even though
   I don't get to dedicate as much time to these.
   </p>
-  </PageDiv>
+  </BasicPage>
   );
 }
 

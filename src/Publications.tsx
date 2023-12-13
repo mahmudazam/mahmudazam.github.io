@@ -1,5 +1,5 @@
 
-import { PageDiv } from './App';
+import BasicPage from './BasicPage';
 
 //var Latex = require('react-latex');
 
@@ -57,7 +57,7 @@ const publications : Array<Publication> = [
 
 function Publications() {
   return (
-  <PageDiv>
+  <BasicPage>
   {publications.map((pub, index) =>
     <div key={index} style={{marginBottom: '1em'}}>
     {(index + 1)}
@@ -90,7 +90,7 @@ function Publications() {
       })()}
     </div>
   )}
-  </PageDiv>
+  </BasicPage>
   );
 }
 
