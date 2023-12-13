@@ -59,9 +59,9 @@ function App() {
     <AppDiv>
       <Header />
       <Routes>
-        {appRoutes.map((rt) =>
+        {appRoutes.map((rt, index) =>
           <Route
-            key={rt.path}
+            key={index}
             path={rt.path}
             element={appElements.get(rt.path)}
           />

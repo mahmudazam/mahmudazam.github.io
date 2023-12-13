@@ -247,8 +247,8 @@ function CV() {
   <PageDiv>
   <div style={{ fontWeight: 'bold' }}>Education</div>
   <hr style={{ marginTop: '0%' }} />
-  {education.map((ed) =>
-    <div key={ed.degree} style={{ marginTop: '0.5em' }}>
+  {education.map((ed, index) =>
+    <div key={index} style={{ marginTop: '0.5em' }}>
       <LayoutSpan small='70%'>
         <span style={{ fontWeight: 'bold' }}>{ed.degree}</span>
         , <span style={{fontStyle: 'italic'}}>{ed.institution}</span>
@@ -267,8 +267,8 @@ function CV() {
 
   <div style={{ fontWeight: 'bold', marginTop: '1.5em' }}>Invited Talks</div>
   <hr style={{ marginTop: '0%' }} />
-  {invitedTalks.map((talk) =>
-    <div key={talk.title} style={{ marginTop: '0.5em' }}>
+  {invitedTalks.map((talk, index) =>
+    <div key={index} style={{ marginTop: '0.5em' }}>
       <LayoutSpan small='70%' style={{ fontWeight: 'bold' }}>
         {talk.title}
       </LayoutSpan>
@@ -284,8 +284,8 @@ function CV() {
 
   <div style={{ fontWeight: 'bold', marginTop: '1.5em' }}>Awards</div>
   <hr style={{ marginTop: '0%' }} />
-  {awards.map((award) =>
-    <div key={award.name} style={{ marginTop: '0.5em' }}>
+  {awards.map((award, index) =>
+    <div key={index} style={{ marginTop: '0.5em' }}>
       <LayoutSpan small='70%'>
         <span style={{ fontWeight: 'bold' }}>{award.name}</span>
         {award.currency && award.value &&
