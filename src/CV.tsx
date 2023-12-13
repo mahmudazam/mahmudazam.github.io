@@ -298,6 +298,18 @@ const LayoutSpan = styled.span<{ small: string, align?: string }>`
   }
 `;
 
+const SmallScreenDiv = styled.div`
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+const LargeScreenSpan = styled.span`
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
 function CV() {
   return (
   <PageDiv>
@@ -307,7 +319,9 @@ function CV() {
     <div key={index} style={{ marginTop: '0.5em' }}>
       <LayoutSpan small='70%'>
         <span style={{ fontWeight: 'bold' }}>{ed.degree}</span>
-        , <span style={{fontStyle: 'italic'}}>{ed.institution}</span>
+        <LargeScreenSpan>
+          , <span style={{fontStyle: 'italic'}}>{ed.institution}</span>
+        </LargeScreenSpan>
       </LayoutSpan>
       <LayoutSpan small='30%' align='end'>
         {monthName(ed.start.month)}, {ed.start.year}
@@ -316,6 +330,9 @@ function CV() {
           ? `${monthName(ed.end.month)}, ${ed.end.year}`
           : ' present'}
       </LayoutSpan> 
+      <SmallScreenDiv>
+        <span style={{fontStyle: 'italic'}}>{ed.institution}</span>
+      </SmallScreenDiv>
       <div>Supervisor: {ed.supervisor}</div>
       <div>Thesis: <Latex>{ed.thesis}</Latex></div>
     </div>
