@@ -220,6 +220,65 @@ const awards = [
 },
 ]
 
+const work = [
+{
+  position: 'Teaching Assistant',
+  description: 'MAT 137: Calculus with Proofs',
+  institution: 'University of Toronto',
+  period: {
+    start: { year: 2021, month: 9, day: 1 },
+    end: { year: 2022, month: 4, day: 31 },
+  },
+},
+{
+  position: 'Marker',
+  description: 'MATH 266: Linear Algebra I',
+  institution: 'University of Saskatchewan',
+  period: {
+    term: 'Winter',
+    year: 2021,
+  },
+},
+{
+  position: 'Marker',
+  description: 'MATH 163: Introduction to Mathematical Reasoning',
+  institution: 'University of Saskatchewan',
+  period: {
+    term: 'Fall',
+    year: 2020,
+  },
+},
+{
+  position: 'Software Developer Intern',
+  institution: 'Vecima Networks',
+  period: {
+    start: { year: 2018, month: 5, day: -1 },
+    end: { year: 2019, month: 8, day: -1 },
+  },
+  endNote: 'USask Computer Science Internship Program'
+},
+]
+
+const activities = [
+{
+  activity: 'Vice President Finance',
+  where: `Mathematics and Statistics Student Society,
+          University of Saskatchewan`,
+  period: {
+    start: { year: 2020, month: 9, day: 1 },
+    end: { year: 2021, month: 4, day: 31 },
+  },
+},
+{
+  activity: 'USask Programming Contests',
+  period: {
+    description: 'Participate regularly'
+  },
+  description: `Our team achieved first place in Winter, 2023 (open category),
+                and Winter, 2020`
+},
+]
+
 function monthName(monthNum : number) {
   const date = new Date();
   date.setMonth(monthNum - 1);
@@ -314,6 +373,55 @@ function CV() {
           {', ' + award.endNote}
         </span>}
       </div>
+    </div>
+  )}
+
+  <div style={{ fontWeight: 'bold', marginTop: '1.5em' }}>Work Experience</div>
+  <hr style={{ marginTop: '0%' }} />
+  {work.map((w, index) =>
+    <div key={index} style={{ marginTop: '0.5em' }}>
+      <LayoutSpan small='70%'>
+        <span style={{ fontWeight: 'bold' }}>{w.position}</span>
+        {w.description && <span> ({w.description})</span>}
+      </LayoutSpan>
+      <LayoutSpan small='30%' align='end'>
+        {w.period.start &&
+          monthName(w.period.start.month) + ', ' + w.period.start.year}
+        {w.period.end &&
+          ' --- ' + monthName(w.period.end.month) +
+          ', ' + w.period.end.year}
+        {w.period.term && w.period.year &&
+          w.period.term + ', ' + w.period.year}
+      </LayoutSpan>
+      <div>
+        <span style={{ fontStyle: 'italic' }}>{w.institution}</span>
+        {w.endNote && <span>, {w.endNote}</span>}
+      </div>
+    </div>
+  )}
+
+  <div style={{ fontWeight: 'bold', marginTop: '1.5em' }}>
+    Activities
+  </div>
+  <hr style={{ marginTop: '0%' }} />
+  {activities.map((a, index) =>
+    <div key={index} style={{ marginTop: '0.5em' }}>
+      <LayoutSpan small='70%'>
+        <span style={{ fontWeight: 'bold' }}>{a.activity}</span>
+      </LayoutSpan>
+      <LayoutSpan small='30%' align='end'>
+        {a.period.start &&
+          monthName(a.period.start.month) + ', ' + a.period.start.year}
+        {a.period.end &&
+          ' --- ' + monthName(a.period.end.month) +
+          ', ' + a.period.end.year}
+        {a.period.description && a.period.description}
+      </LayoutSpan>
+      {a.where &&
+      <div>
+          <span style={{ fontStyle: 'italic' }}>{a.where}</span>
+      </div>}
+      {a.description && <div>{a.description}</div>}
     </div>
   )}
   </PageDiv>
