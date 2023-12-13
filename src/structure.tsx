@@ -1,5 +1,5 @@
 
-export const appRoutes = [
+export const appRoutes : Array<{ path: string, name: string }> = [
 {
   path: '/',
   name: 'Home',

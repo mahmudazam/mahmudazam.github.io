@@ -46,12 +46,12 @@ export const PageDiv = styled.div`
   animation: ${fadeIn} 0.5s ease-in-out;
 `;
 
-const appElements = new Map<string, any>([
-  ['/', <Home />],
-  ['/cv', <CV />],
-  ['/publications', <Publications />],
-  ['/contact', <Contact />],
-]);
+const appElements : { [key: string] : any } = {
+  '/': <Home />,
+  '/cv': <CV />,
+  '/publications': <Publications />,
+  '/contact': <Contact />,
+};
 
 
 function App() {
@@ -63,7 +63,7 @@ function App() {
           <Route
             key={index}
             path={rt.path}
-            element={appElements.get(rt.path)}
+            element={appElements[rt.path]}
           />
         )}
       </Routes>
