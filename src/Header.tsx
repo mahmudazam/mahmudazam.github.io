@@ -42,7 +42,7 @@ const Nav = styled.span<{showNav : boolean, buttonEvent : boolean}>`
     `}
     transition-property: max-height;
     transition-duration: 0.25s;
-    transition-delay: ${props => props.buttonEvent ? 0 : 0.5}s;
+    transition-delay: ${props => props.buttonEvent ? 0 : 0.35}s;
     overflow: hidden;
     width:100%;
     border-top: ${props => props.showNav ? 0 : 0}em solid gray;
