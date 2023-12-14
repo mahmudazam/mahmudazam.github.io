@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   NavLink,
   useLocation
@@ -24,7 +24,7 @@ const HeaderDiv = styled.div`
   box-shadow: 0 3px 2px -2px gray;
 `
 
-const Nav = styled.span<{navtoggle : boolean}>`
+const Nav = styled.span<{showNav : boolean, buttonEvent : boolean}>`
   position: relative;
   margin: 0;
   padding: 0;
@@ -35,16 +35,17 @@ const Nav = styled.span<{navtoggle : boolean}>`
   }
   @media only screen and (max-width: 768px) {
     display: block;
-    ${props => props.navtoggle ? css`
+    ${props => props.showNav ? css`
       max-height: 10em;
     ` : css`
       max-height: 0;
     `}
-    transition: max-height 0.5s;
+    transition-property: max-height;
+    transition-duration: 0.25s;
+    transition-delay: ${props => props.buttonEvent ? 0 : 0.5}s;
     overflow: hidden;
     width:100%;
-    border-top: 0.1em solid black;
-    border-bottom: 0.1em solid black;
+    border-top: ${props => props.showNav ? 0 : 0}em solid gray;
   }
 `
 
@@ -90,23 +91,23 @@ const Highlighter = styled('span')<{navSeq: number}>`
     width: 8em;
     height: 3em;
     left: ${props => props.navSeq * 8}em;
-    transition: left 0.5s;
+    transition: left 0.25s;
     border-bottom: 0.25em solid black;
   }
   @media only screen and (max-width: 768px) {
     display: flex;
-    width: 100%;
-    height: 2em;
-    top: ${props => props.navSeq * 2}em;
-    transition: top 0.5s;
-    border-left: 0.2em solid black;
-    border-bottom: 0.1em solid black;
-    border-top: 0.1em solid black;
+    width: 50%;
+    height: 1.8em;
+    left: 25%;
+    top: ${props => (props.navSeq * 2) - 0.1}em;
+    transition: top 0.25s;
+    border-bottom: 0.25em solid black;
   }
 `;
 
 const NavButton = styled.button`
   position: absolute;
+  cursor: pointer;
   @media only screen and (min-width: 768px) {
     display: none;
   }
@@ -143,19 +144,29 @@ const NavSeq : { [key: string] :  number } = NavList.reduce((
   }, {});
 
 function Header() {
-  let currNavSeq = NavSeq[useLocation().pathname];
-  let [navtoggle, setNavToggle] = useState(false);
+  let location = useLocation();
+  let currNavSeq = NavSeq[location.pathname];
+  let [showNav, setShowNav] = useState(false);
+  let [buttonEvent, setButtonEvent] = useState(false);
+
+  useEffect(() => {
+    setShowNav(false); // location change triggers Nav collapse
+    setButtonEvent(false); // however, this is not by button press
+  }, [location]);
 
   return (
     <HeaderDiv>
-      <NavButton onClick={() => { setNavToggle(!navtoggle);}}>
+      <NavButton onClick={() => {
+        setShowNav(!showNav);
+        setButtonEvent(true);
+      }}>
         <HiChevronDoubleDown style={{
-          transform : `rotate(${navtoggle ? 180 : 0}deg)`,
-          transition: 'transform 0.5s'
+          transform : `rotate(${showNav ? 180 : 0}deg)`,
+          transition: 'transform 0.25s'
         }} />
       </NavButton>
       <Title>Mahmud Azam</Title>
-      <Nav navtoggle={navtoggle}>
+      <Nav showNav={showNav} buttonEvent={buttonEvent}>
         {NavList.map((navItem) =>
           <NavLink
             key={navItem.route}
