@@ -1,6 +1,4 @@
 
-import BasicPage from '../Common/BasicPage';
-
 import styled from 'styled-components';
 
 import { periodToString, simpleDateToString } from './CVDate';
@@ -13,7 +11,18 @@ import {
   activities,
 } from './Data';
 
+// CSS
+import _cvCSS from './CV.module.css';
+import _basicPage from '../Common/BasicPage.module.css';
+import _responsive from '../Common/Responsive.module.css';
+const cvCSS = _cvCSS['main'];
+const basicPageCSS = _basicPage['main'];
+const showBelow768 = _responsive['show-below-768'];
+const showAbove768 = _responsive['show-above-768'];
+// End CSS
+
 var Latex = require('react-latex');
+
 
 const LayoutSpan = styled.span<{ small: string, align?: string }>`
   @media only screen and (min-width: 768px) {
@@ -27,44 +36,25 @@ const LayoutSpan = styled.span<{ small: string, align?: string }>`
   }
 `;
 
-const SmallScreenDiv = styled.div`
-  @media only screen and (min-width: 768px) {
-    display: none;
-  }
-`;
-
-const LargeScreenSpan = styled.span`
-  @media only screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const CVDiv = styled(BasicPage)`
-  @media only screen and (min-width: 768px) {
-    padding-left: 25%;
-    padding-right: 25%;
-  }
-`;
-
 function CV() {
   return (
-  <CVDiv>
+  <div className={`${basicPageCSS} ${cvCSS}`}>
   <div style={{ fontWeight: 'bold' }}>Education</div>
   <hr style={{ marginTop: '0%' }} />
   {education.map((ed, index) =>
     <div key={index} style={{ marginTop: '0.5em' }}>
       <LayoutSpan small='70%'>
         <span style={{ fontWeight: 'bold' }}>{ed.degree}</span>
-        <LargeScreenSpan>
+        <span className={showAbove768}>
           , <span style={{fontStyle: 'italic'}}>{ed.institution}</span>
-        </LargeScreenSpan>
+        </span>
       </LayoutSpan>
       <LayoutSpan small='30%' align='end'>
         {periodToString(ed.period)}
       </LayoutSpan> 
-      <SmallScreenDiv>
+      <div className={showBelow768}>
         <span style={{fontStyle: 'italic'}}>{ed.institution}</span>
-      </SmallScreenDiv>
+      </div>
       <div>Supervisor: {ed.supervisor}</div>
       <div>Thesis: <Latex>{ed.thesis}</Latex></div>
     </div>
@@ -155,7 +145,7 @@ function CV() {
       {a.description && <div>{a.description}</div>}
     </div>
   )}
-  </CVDiv>
+  </div>
   );
 }
 

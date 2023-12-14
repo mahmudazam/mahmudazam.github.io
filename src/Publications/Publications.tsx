@@ -1,5 +1,6 @@
 
-import BasicPage from '../Common/BasicPage';
+import _basicPage from '../Common/BasicPage.module.css';
+const {main : basicPage} = _basicPage;
 
 //var Latex = require('react-latex');
 
@@ -57,7 +58,7 @@ const publications : Array<Publication> = [
 
 function Publications() {
   return (
-  <BasicPage>
+  <div className={basicPage}>
   {publications.map((pub, index) =>
     <div key={index} style={{marginBottom: '1em'}}>
     {(index + 1)}
@@ -90,7 +91,7 @@ function Publications() {
       })()}
     </div>
   )}
-  </BasicPage>
+  </div>
   );
 }
 

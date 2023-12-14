@@ -1,6 +1,4 @@
 
-import BasicPage from '../Common/BasicPage';
-
 import {
   DiGithubBadge,
 } from 'react-icons/di'
@@ -12,6 +10,11 @@ import {
 import {
   HiOutlineMail
 } from 'react-icons/hi'
+
+// CSS:
+import _basicPage from '../Common/BasicPage.module.css';
+const {main : basicPage} = _basicPage;
+// End CSS
 
 const contacts = [
 {
@@ -34,7 +37,7 @@ const contacts = [
 
 function Contact() {
   return (
-  <BasicPage>
+  <div className={basicPage}>
   {contacts.map((contact, index) =>
     <div key={index} style={{marginBottom: '1em'}}>
       <contact.icon />
@@ -44,7 +47,7 @@ function Contact() {
       }
     </div>
   )}
-  </BasicPage>
+  </div>
   );
 }
 
