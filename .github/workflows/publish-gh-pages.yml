@@ -1,20 +1,16 @@
 name: publish-gh-pages
-run-name: Publishing personal website on GitHub Pages
+run-name: Publish on GitHub Pages
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout webpage repository
-      uses: actions/checkout@v4
-    - name: Install Node.js on Runner
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v3
       with:
         node-version: '20.10.0'
-    - name: Install node_modules
-      run: npm ci
-    - name: Build React app in ./build
-      run: npm run build
+    - run: npm ci
+    - run: npm run build
     - name: Package static files to deploy
       uses: actions/upload-pages-artifact@v1
       with:
@@ -30,5 +26,4 @@ jobs:
       url: ${{ steps.deployment.output.page_url }}
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy on GitHub pages
-      uses: actions/deploy-pages@main
+    - uses: actions/deploy-pages@main
