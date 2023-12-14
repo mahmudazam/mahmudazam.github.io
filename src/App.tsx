@@ -1,16 +1,10 @@
 
 import React from 'react';
-
-import Contact from './Contact'
-import CV from './CV';
-import Header from './Header';
-import Home from './Home';
-import Publications from './Publications';
-
-import { appRoutes } from './structure';
-
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
+
+import Header from './Header';
+import { appRoutes } from './structure';
 
 const AppDiv = styled.div`
   display: inline-block;
@@ -20,24 +14,13 @@ const AppDiv = styled.div`
   font-family: "Palatino", serif;
 `;
 
-const appElements : { [key: string] : any } = {
-  '/': <Home />,
-  '/cv': <CV />,
-  '/publications': <Publications />,
-  '/contact': <Contact />,
-};
-
 function App() {
   return (
     <AppDiv>
       <Header />
       <Routes>
         {appRoutes.map((rt, index) =>
-          <Route
-            key={index}
-            path={rt.path}
-            element={appElements[rt.path]}
-          />
+          <Route key={index} path={rt.path} element={<rt.component />} />
         )}
       </Routes>
     </AppDiv>

@@ -1,20 +1,40 @@
 
-export const appRoutes : Array<{ path: string, name: string }> = [
+import Contact from './Contact'
+import CV from './CV';
+import Home from './Home';
+import Publications from './Publications';
+
+const _appRoutes : Array<{ path: string,
+                                 name: string,
+                                 component: any }> = [
 {
-  path: '/',
+  path: '',
   name: 'Home',
+  component: Home,
 },
 {
-  path: '/cv',
+  path: 'cv',
   name: 'CV',
+  component: CV,
 },
 {
-  path: '/publications',
+  path: 'publications',
   name: 'Publications',
+  component: Publications,
 },
 {
-  path: '/contact',
+  path: 'contact',
   name: 'Contact',
+  component: Contact,
 },
 ]
 
+const prefix = '/';
+
+export const appRoutes = _appRoutes.map((appRt, index) => {
+  return {
+    ...appRt,
+    index: index,
+    path: prefix + appRt.path,
+  };
+});
