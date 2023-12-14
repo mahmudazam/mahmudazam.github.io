@@ -38,7 +38,7 @@ const education = [
 const invitedTalks = [
 {
   title: 'TQFTs and Quantum Computing',
-  event: 'quanTA Junion Symposium',
+  event: 'quanTA Junior Symposium',
   date: { year: 2023, month: 6, day: 29 },
   location: 'University of Saskatchewan'
 },
