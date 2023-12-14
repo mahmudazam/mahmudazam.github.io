@@ -1,6 +1,9 @@
 name: publish-gh-pages
 run-name: Publish on GitHub Pages
-on: [push]
+on:
+  push:
+    branches:
+    - master
 jobs:
   build:
     runs-on: ubuntu-latest
