@@ -1,5 +1,5 @@
 
-import BasicPage from './BasicPage';
+import BasicPage from '../Common/BasicPage';
 
 //var Latex = require('react-latex');
 

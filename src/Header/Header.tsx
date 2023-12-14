@@ -7,7 +7,7 @@ import {
 import styled, { css } from 'styled-components';
 import { HiChevronDoubleDown } from 'react-icons/hi';
 
-import { appRoutes } from './structure';
+import { appRoutes } from '../structure';
 
 const HeaderDiv = styled.div`
   @media only screen and (min-width: 768px) {

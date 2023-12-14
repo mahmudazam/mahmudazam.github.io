@@ -1,8 +1,8 @@
 
-import Contact from './Contact'
-import CV from './CV';
-import Home from './Home';
-import Publications from './Publications';
+import Contact from './Contact/Contact'
+import CV from './CV/CV';
+import Home from './Home/Home';
+import Publications from './Publications/Publications';
 
 const _appRoutes : Array<{ path: string,
                                  name: string,

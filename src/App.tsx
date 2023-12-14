@@ -3,7 +3,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Header from './Header';
+import Header from './Header/Header';
 import { appRoutes } from './structure';
 
 const AppDiv = styled.div`
