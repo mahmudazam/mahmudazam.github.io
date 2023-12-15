@@ -13,24 +13,29 @@ export enum PeriodTag {
   TY = 'TermYearPeriod',
   DE = 'DescriptionPeriod',
   ON = 'OngoingPeriod',
+  SD = 'SingDatePeriod'
 }
 export interface StartEndPeriod {
-  tag: PeriodTag.SE, start: SimpleDate, end: SimpleDate
+  readonly tag: PeriodTag.SE, start: SimpleDate, end: SimpleDate
 }
 export interface TermYearPeriod {
-  tag: PeriodTag.TY, term: string, year: number
+  readonly tag: PeriodTag.TY, term: string, year: number
 }
 export interface DescriptionPeriod {
-  tag: PeriodTag.DE, description: string
+  readonly tag: PeriodTag.DE, description: string
 }
 export interface OngoingPeriod {
-  tag: PeriodTag.ON, start: SimpleDate, expected?: SimpleDate
+  readonly tag: PeriodTag.ON, start: SimpleDate, expected?: SimpleDate
+}
+export interface SingleDatePeriod {
+  readonly tag: PeriodTag.SD, date: SimpleDate
 }
 
 export type Period = StartEndPeriod
             | TermYearPeriod
             | DescriptionPeriod
             | OngoingPeriod
+            | SingleDatePeriod
 
 export function monthYearString(date: SimpleDate) : string {
   return `${monthName(date.month)}, ${date.year}`;
@@ -49,13 +54,15 @@ export function periodToString(period : Period) : any {
   switch(period.tag) {
   case PeriodTag.SE:
    return `${monthYearString(period.start)} --- ${monthYearString(period.end)}`;
- case PeriodTag.TY:
+  case PeriodTag.TY:
    return `${period.term}, ${period.year}`;
- case PeriodTag.DE:
+  case PeriodTag.DE:
    return period.description;
- case PeriodTag.ON:
+  case PeriodTag.ON:
     return monthYearString(period.start) + ' --- present'
- default:
-   return never(period);
+  case PeriodTag.SD:
+    return simpleDateToString(period.date);
+  default:
+    return never(period);
  }
 }

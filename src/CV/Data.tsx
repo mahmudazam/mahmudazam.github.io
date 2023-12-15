@@ -1,5 +1,5 @@
 
-import { Period, PeriodTag, SimpleDate } from './CVDate';
+import { Period, PeriodTag, SingleDatePeriod } from './CVDate';
 
 interface EducationEntry {
   degree: string,
@@ -13,7 +13,7 @@ interface EducationEntry {
 interface InvitedTalk {
   title: string,
   event: string,
-  date: SimpleDate,
+  date: SingleDatePeriod,
   location: string
 }
 
@@ -86,19 +86,28 @@ export const invitedTalks : Array<InvitedTalk> = [
 {
   title: 'TQFTs and Quantum Computing',
   event: 'quanTA Junior Symposium',
-  date: { year: 2023, month: 6, day: 29 },
+  date: {
+    tag: PeriodTag.SD,
+    date: { year: 2023, month: 6, day: 29 }
+  },
   location: 'University of Saskatchewan'
 },
 {
   title: 'TQFTs and Quantum Computing',
   event: 'Scientific Session on Quantum Information Theory, CMS Summer Meeting',
-  date: { year: 2023, month: 6, day: 3 },
+  date: {
+    tag: PeriodTag.SD,
+    date: { year: 2023, month: 6, day: 3 },
+  },
   location: 'University of Ottawa'
 },
 {
   title: 'TQFTs through Parallel Transport and Quantum Computing',
   event: 'The Calgary Peripatetic Seminar',
-  date: { year: 2021, month: 9, day: 24 },
+  date: {
+    tag: PeriodTag.SD,
+    date: { year: 2021, month: 9, day: 24 },
+  },
   location: 'University of Calgary'
 },
 ]
