@@ -45,12 +45,11 @@ export function simpleDateToString(date: SimpleDate) : string {
   return `${monthName(date.month)} ${date.day}, ${date.year}`;
 }
 
-function never(a : never) : never {
-  throw new Error('Period: unexpected value');
+function matchError(a : never) : never {
+  throw new Error('Period: error in pattern matching');
 };
 
 export function periodToString(period : Period) : any {
-
   switch(period.tag) {
   case PeriodTag.SE:
    return `${monthYearString(period.start)} --- ${monthYearString(period.end)}`;
@@ -63,6 +62,6 @@ export function periodToString(period : Period) : any {
   case PeriodTag.SD:
     return simpleDateToString(period.date);
   default:
-    return never(period);
- }
+    return matchError(period);
+  }
 }
