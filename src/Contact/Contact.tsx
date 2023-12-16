@@ -39,9 +39,9 @@ function Contact() {
   return (
   <div className={basicPage}>
   {contacts.map((contact, index) =>
-    <div key={index} style={{marginBottom: '1em'}}>
+    <div key={index} className="mb-4">
       <contact.icon />
-      <span style={{fontWeight: 'bold'}}>{contact.mode}: </span>
+      <span className="font-bold">{contact.mode}: </span>
       {(contact.url && <a href={contact.url}>{contact.text}</a>)
         || contact.text
       }

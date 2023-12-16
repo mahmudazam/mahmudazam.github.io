@@ -11,13 +11,13 @@ function Publications() {
   return (
   <div className={basicPage}>
   {publications.map((pub, index) =>
-    <div key={index} style={{marginBottom: '1em'}}>
+    <div key={index} className="mb-4">
     {(index + 1)}
     . {pub.author.map((auth, authInd) =>
         auth + (authInd < pub.author.length - 1 ? ' and ' : '')
       )}
     . {pub.time.year}
-    . <span style={{fontStyle: 'italic'}}>{pub.title}</span>
+    . <span className="italic">{pub.title}</span>
     . {whereToJSX(pub.where)}
     </div>
   )}
