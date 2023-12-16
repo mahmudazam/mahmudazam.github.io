@@ -1,9 +1,12 @@
 name: publish-gh-pages
 run-name: Publish on GitHub Pages
+
 on:
   push:
     branches:
     - master
+  workflow_dispatch: {}
+
 jobs:
   build:
     runs-on: ubuntu-latest
