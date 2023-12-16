@@ -15,15 +15,9 @@ import {
 // CSS
 import _cvCSS from './CV.module.css';
 import _basicPage from '../Common/BasicPage.module.css';
-import _responsive from '../Common/Responsive.module.css';
 const cvCSS = _cvCSS['main'];
 const basicPageCSS = _basicPage['main'];
-const showBelow768 = _responsive['show-below-768'];
-const showAbove768 = _responsive['show-above-768'];
-const width70_above768 = _responsive['width-70-above-768'];
-const width30_above768 = _responsive['width-30-above-768'];
-const width100_below768 = _responsive['width-100-below-768'];;
-const textAlignRight_above768 = _responsive['text-align-right-above-768'];
+//const textAlignRight_above768 = _responsive['text-align-right-above-768'];
 // End CSS
 
 var Latex = require('react-latex');
@@ -36,23 +30,23 @@ export function CVEntry(props : {
 }) {
   const { title, description, period, children } = props;
   return (
-    <div style={{ marginTop: '0.5em' }}>
-       <span className={[width70_above768, width100_below768].join(' ')}>
-        <span style={{ fontWeight: 'bold' }}>{title}</span>
-        {description && <span className={showAbove768}>
-          {' '}(<span style={{fontStyle: 'italic'}}>{description}</span>)
-        </span>}
+    <div className="mt-2">
+      <span className="inline-block md:w-3/5 sm:w-full">
+      <span className="font-bold">{title}</span>
+        {description &&
+          <span className="max-sm:hidden">
+            {' '}(<span className="italic">{description}</span>)
+          </span>
+        }
       </span>
-      <span className={[
-        width30_above768,
-        width100_below768,
-        textAlignRight_above768
-      ].join(' ')}>
+      <span className="inline-block md:w-2/5 md:text-end">
         {periodToString(period)}
       </span>
-      {description && <div className={showBelow768}>
-        <span style={{fontStyle: 'italic'}}>{description}</span>
-      </div>}
+      {description &&
+        <div className="md:hidden">
+          <span className="italic">{description}</span>
+        </div>
+      }
       {children}
     </div>
   );
@@ -60,14 +54,14 @@ export function CVEntry(props : {
 
 function CVSection(props: {
   title: string,
-  marginTop?: string | '0em',
+  marginTop?: string,
   children: any,
 }) {
   const {title, children, marginTop} = props;
   return (
-    <div style={{ marginTop: marginTop }}>
-      <div style={{ fontWeight: 'bold' }}>{title}</div>
-      <hr style={{ marginTop: '0%' }} />
+    <div className={marginTop ? marginTop : "mt-4"}>
+      <div className="font-bold">{title}</div>
+      <hr className="mt-0" />
       {children}
     </div>
   );
@@ -76,7 +70,7 @@ function CVSection(props: {
 function CV() {
   return (
   <div className={`${basicPageCSS} ${cvCSS}`}>
-    <CVSection title='Education'>
+    <CVSection title='Education' marginTop="mt-0">
       {education.map((ed, index) =>
         <CVEntry
           key={index}
@@ -90,7 +84,7 @@ function CV() {
       )}
     </CVSection>
 
-    <CVSection title='Invited Talks' marginTop='1.5em'>
+    <CVSection title='Invited Talks'>
       {invitedTalks.map((talk, index) =>
         <CVEntry
             key={index}
@@ -98,14 +92,14 @@ function CV() {
             period={talk.date}
         >
           <div>
-            <span style={{ fontStyle: 'italic' }}>{talk.event}</span>
+            <span className="italic">{talk.event}</span>
             , {talk.location}
           </div>
         </CVEntry>
       )}
     </CVSection>
 
-    <CVSection title='Awards' marginTop='1.5em'>
+    <CVSection title='Awards'>
       {awards.map((award, index) =>
         <CVEntry
           key={index}
@@ -120,11 +114,11 @@ function CV() {
           <div>
             {award.authority &&
             <span>
-                Awarded by <span style={{ fontStyle: 'italic' }}>
+                Awarded by <span className="italic">
                   {award.authority}
                 </span> {' at '}
             </span>}
-            <span style={{ fontStyle: 'italic' }}>
+            <span className="italic">
               {award.institution}
             </span>
             {award.endNote &&
@@ -136,7 +130,7 @@ function CV() {
       )}
     </CVSection>
 
-    <CVSection title='Work' marginTop='1.5em'>
+    <CVSection title='Work'>
       {work.map((w, index) =>
         <CVEntry
           key={index}
@@ -145,14 +139,14 @@ function CV() {
           period={w.period}
         >
           <div>
-            <span style={{ fontStyle: 'italic' }}>{w.institution}</span>
+            <span className="italic">{w.institution}</span>
             {w.endNote && <span>, {w.endNote}</span>}
           </div>
         </CVEntry>
       )}
     </CVSection>
 
-    <CVSection title='Activities' marginTop='1.5em'>
+    <CVSection title='Activities'>
       {activities.map((a, index) =>
         <CVEntry
           key={index}
@@ -161,7 +155,7 @@ function CV() {
         >
           {a.where &&
           <div>
-              <span style={{ fontStyle: 'italic' }}>{a.where}</span>
+              <span className="italic">{a.where}</span>
           </div>}
           {a.description && <div>{a.description}</div>}
         </CVEntry>
