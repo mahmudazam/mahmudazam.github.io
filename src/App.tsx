@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { useMedia } from './state';
+import { useMedia, useNavState } from './state';
 import Header from './Header/Header';
 import { appRoutes } from './structure';
 
@@ -28,19 +28,23 @@ function App() {
           .addEventListener('change', e => _setMaxMd(e.matches))
   })
   useEffect(() => {
-    console.log(_md, _maxMd)
     setMd(_md)
     setMaxMd(_maxMd)
   }, [_md, _maxMd, setMd, setMaxMd])
 
+  const collapseNavNow = useNavState(state => state.collapseNavNow)
+
   return (
     <div className={styles['top']}>
       <Header />
-      <Routes>
+      <div className="p-0 m-0 min-w-full min-h-[100vh]"
+           onClick={collapseNavNow}>
+        <Routes>
         {appRoutes.map((rt, index) =>
           <Route key={index} path={rt.path} element={<rt.component />} />
         )}
-      </Routes>
+        </Routes>
+      </div>
     </div>
   );
 }

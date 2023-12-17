@@ -2,6 +2,8 @@
 import React from 'react';
 import { HiChevronDoubleDown } from 'react-icons/hi';
 
+import { useNavState } from '../state'
+
 const NavButtonStyle = `
   md:hidden
   absolute right-[0.75em] top-[1em]
@@ -20,10 +22,11 @@ const ChevronAnimation = (pointUp : boolean) => `
 `;
 
 function NavButton(props : {
-  showNav : boolean,
   onClick : () => void
 }) {
-  const {showNav, onClick} = props;
+  const { onClick } = props;
+  const showNav = useNavState(state => state.showNav)
+
   return (
     <div className={NavButtonStyle} onClick={onClick}>
       <HiChevronDoubleDown

@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { useMedia } from '../state'
+import { useMedia, useNavState } from '../state'
 
 function Nav(props : {
-  showNav : boolean,
-  buttonEvent: boolean,
   children: any
 }) {
-  const { showNav, buttonEvent, children } = props;
+  const { children } = props;
+  const showNav = useNavState(state => state.showNav)
+  const collapseNavDelay = useNavState(state => state.collapseNavDelay)
   const maxMd = useMedia(state => state.maxMd)
 
   return (
@@ -27,7 +27,7 @@ function Nav(props : {
       style={maxMd ? {
         transitionProperty: 'max-height',
         transitionDuration: '0.35s',
-        transitionDelay: `${buttonEvent ? 0 : 0.35}s`,
+        transitionDelay: `${collapseNavDelay ? 0.35 : 0}s`,
         maxHeight: `${showNav ? 100 : 0}em`
       } : {}}
     >

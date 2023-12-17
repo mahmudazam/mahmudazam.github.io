@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   useLocation
 } from 'react-router-dom';
@@ -10,6 +10,7 @@ import Nav from './Nav';
 import NavItem from './NavItem';
 import Title from './Title';
 import { appRoutes } from '../structure';
+import { useNavState } from '../state'
 
 interface NavItemData {
   route : string,
@@ -34,13 +35,14 @@ const NavSeq : { [key: string] :  number } = NavList.reduce((
 function Header() {
   let location = useLocation();
   let currNavSeq = NavSeq[location.pathname];
-  let [showNav, setShowNav] = useState(false);
-  let [buttonEvent, setButtonEvent] = useState(false);
+  const showNav = useNavState(state => state.showNav)
+  const setShowNav = useNavState(state => state.setShowNav)
+  const setCollapseNavDelay = useNavState(state => state.setCollapseNavDelay)
 
   useEffect(() => {
     setShowNav(false); // location change triggers Nav collapse
-    setButtonEvent(false); // however, this is not by button press
-  }, [location]);
+    setCollapseNavDelay(true); // however, this is not by button press
+  }, [location, setShowNav, setCollapseNavDelay]);
 
   return (
     <div className={`
@@ -54,7 +56,7 @@ function Header() {
       shadow
     `}>
       <Title>Mahmud Azam</Title>
-      <Nav showNav={showNav} buttonEvent={buttonEvent}>
+      <Nav>
         {NavList.map((navItem, index) =>
           <NavItem key={index} toRoute={navItem.route}>
             {navItem.text}
@@ -63,10 +65,9 @@ function Header() {
         <Highlighter navSeq={currNavSeq} />
       </Nav>
       <NavButton
-        showNav={showNav}
         onClick={() => {
           setShowNav(!showNav);
-          setButtonEvent(true);
+          setCollapseNavDelay(false);
         }}
       />
     </div>
