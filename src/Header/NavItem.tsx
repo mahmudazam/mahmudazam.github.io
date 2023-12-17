@@ -14,7 +14,6 @@ function NavItem(props : {
       style={({ isActive}) => ({
         textDecoration: 'none',
         color: isActive ? 'black' : 'gray',
-        fontWeight: isActive ? 'bold' : 'normal',
       })}
       className={`
         inline-flex
@@ -24,6 +23,9 @@ function NavItem(props : {
 
         min-h-[3em]
         max-h-[3em]
+
+        transition-[color]
+        duration-[0.5s]
 
         items-center
         justify-center
