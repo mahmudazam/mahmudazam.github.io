@@ -31,7 +31,7 @@ export function CVEntry(props : {
   const { title, description, period, children } = props;
   return (
     <div className="mt-2">
-      <span className="inline-block md:w-3/5 sm:w-full">
+      <span className="inline-block md:w-3/5 max-md:w-full">
       <span className="font-bold">{title}</span>
         {description &&
           <span className="max-sm:hidden">
@@ -39,7 +39,7 @@ export function CVEntry(props : {
           </span>
         }
       </span>
-      <span className="inline-block md:w-2/5 md:text-end">
+      <span className="inline-block md:w-2/5 max-md:w-full md:text-end">
         {periodToString(period)}
       </span>
       {description &&
