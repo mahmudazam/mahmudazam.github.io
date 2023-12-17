@@ -1,18 +1,13 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+import { useMedia, MediaState } from '../state';
 
 function Highlighter(props: {
   navSeq: number
 }) {
   const { navSeq } = props;
-
-  const [md, setMd] = useState(
-    window.matchMedia('(min-width: 768px)').matches
-  );
-  useEffect(() => {
-    window.matchMedia('(min-width: 768px)')
-          .addEventListener('change', e => setMd(e.matches))
-  }, [md]);
+  const md = useMedia((state: MediaState) => state.md);
 
   return (
     <span
