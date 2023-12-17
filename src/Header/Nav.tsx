@@ -1,17 +1,5 @@
 
-import React from 'react';
-
-import styled from 'styled-components';
-
-const TransformingNav = styled.span<{
-  showNav : boolean,
-  buttonEvent : boolean
-}>`
-@media only screen and (max-width: 768px) {
-  transition-delay: ${props => props.buttonEvent ? '0' : '0.35'}s;
-  max-height: ${props => props.showNav ? '100' : '0'}em;
-}
-`;
+import React, { useState, useEffect } from 'react';
 
 function Nav(props : {
   showNav : boolean,
@@ -19,10 +7,20 @@ function Nav(props : {
   children: any
 }) {
   const { showNav, buttonEvent, children } = props;
+
+  const [maxMd, setMaxMd] = useState(
+    window.matchMedia('(max-width: 768px)').matches
+  );
+  useEffect(() => {
+    window.matchMedia('(max-width: 768px)')
+          .addEventListener('change', e => setMaxMd(e.matches))
+  }, [maxMd]);
   return (
-    <TransformingNav
-      showNav={showNav}
-      buttonEvent={buttonEvent}
+    <span
+      style={maxMd ? {
+        transitionDelay: `${buttonEvent ? 0 : 0.35}s`,
+        maxHeight: `${showNav ? 100 : 0}em`
+      } : {}}
       className={`
         relative
         inline-flex
@@ -40,7 +38,7 @@ function Nav(props : {
       `}
     >
       {children}
-    </TransformingNav>
+    </span>
   );
 }
 

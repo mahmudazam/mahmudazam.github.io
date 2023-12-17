@@ -1,24 +1,21 @@
 
-import React from 'react';
-
-import styled from 'styled-components';
-
-const TransformingHltr = styled.span<{ navSeq: number }>`
-  @media only screen and (min-width: 768px) {
-    transform: translateX(${props => props.navSeq * 11}em);
-  }
-  @media only screen and (max-width: 768px) {
-    transform: translateY(${props => props.navSeq * 3}em)
-  }
-`;
+import React, { useState, useEffect } from 'react';
 
 function Highlighter(props: {
   navSeq: number
 }) {
   const { navSeq } = props;
+
+  const [md, setMd] = useState(
+    window.matchMedia('(min-width: 768px)').matches
+  );
+  useEffect(() => {
+    window.matchMedia('(min-width: 768px)')
+          .addEventListener('change', e => setMd(e.matches))
+  }, [md]);
+
   return (
-    <TransformingHltr
-      navSeq={navSeq}
+    <span
       className={`
         absolute
         transition-transform
@@ -39,6 +36,10 @@ function Highlighter(props: {
         border-r-0
         border-b-4
       `}
+      style={{
+        transform: md ? `translateX(${navSeq * 11}em)`
+                      : `translateY(${navSeq * 3}em)`
+      }}
     />
   );
 }
