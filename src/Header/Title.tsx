@@ -1,27 +1,22 @@
 
 import React from 'react';
 
+import NavItem from './NavItem'
+
 function Title(props : {
   children: any
 }) {
   const { children } = props;
   return (
-    <span className={`
-      inline-flex
-      md:min-w-[30%]
-      md:max-w-[30%]
-
-      max-md:min-w-full
-      max-md:min-h-[3em]
-      max-md:max-h-[3em]
-
-      items-center
-      justify-center
-      text-[1.5em]
-      font-bold
-    `}>
-      {children}
-    </span>
+    <NavItem>
+      <span className={`
+        text-[1.2em]
+        md:text-[1.25em]
+        font-bold
+      `}>
+        {children}
+      </span>
+    </NavItem>
   );
 }
 

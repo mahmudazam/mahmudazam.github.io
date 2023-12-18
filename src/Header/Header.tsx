@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import {
+  NavLink,
   useLocation
 } from 'react-router-dom';
 
@@ -48,6 +49,7 @@ function Header() {
     <div className={`
       fixed
       z-10
+      pl-[5vw]
       flex
       flex-wrap
       min-w-full
@@ -58,9 +60,22 @@ function Header() {
       <Title>Mahmud Azam</Title>
       <Nav>
         {NavList.map((navItem, index) =>
-          <NavItem key={index} toRoute={navItem.route}>
-            {navItem.text}
-          </NavItem>
+          <NavLink
+            key={index}
+            to={navItem.route}
+            style={({ isActive}) => ({
+              textDecoration: 'none',
+              color: isActive ? 'black' : 'gray',
+            })}
+            className={`
+              transition-[color]
+              duration-[0.5s]
+            `}
+          >
+            <NavItem>
+              {navItem.text}
+            </NavItem>
+          </NavLink>
         )}
         <Highlighter navSeq={currNavSeq} />
       </Nav>

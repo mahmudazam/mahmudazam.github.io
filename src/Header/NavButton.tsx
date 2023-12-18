@@ -6,8 +6,8 @@ import { useNavState } from '../state'
 
 const NavButtonStyle = `
   md:hidden
-  absolute right-[0.75em] top-[1em]
-  h-[2em] w-[2em]
+  absolute right-[7vw] top-[1.5vh]
+  h-[4vh] w-[4vh]
   bg-white
   border-solid border-[1px] rounded-sm
   cursor-pointer

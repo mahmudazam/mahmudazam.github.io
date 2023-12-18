@@ -16,13 +16,12 @@ function Nav(props : {
         relative
         inline-flex
         flex-wrap
-        md:min-w-[70%]
-
-        max-md:min-w-full
-        max-md:max-w-full
-
-        overflow-hidden
+        md:min-w-[72vw]
+        min-w-full
+        max-w-full
         items-center
+
+        max-md:overflow-hidden
       `}
       style={maxMd ? {
         transitionProperty: 'max-height',

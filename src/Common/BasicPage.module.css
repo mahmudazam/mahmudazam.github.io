@@ -9,18 +9,30 @@
 }
 
 .main {
+  padding-left: 7.5vw;
+  padding-right: 7.5vw;
+  padding-top: 11vh;
+  padding-bottom: 11vh;
+
   @media only screen and (min-width: 768px) {
-    padding-left: 30%;
-    padding-right: 30%;
-    padding-top: 11%;
-    padding-bottom: 7.5%;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    padding-top: 15vh;
+    padding-bottom: 15vh
   }
-  @media only screen and (max-width: 768px) {
-    padding-left: 7.5%;
-    padding-right: 7.5%;
-    padding-top: 35%;
-    padding-bottom: 11%;
+  @media only screen and (min-width: 1024px) {
+    padding-left: 20vw;
+    padding-right: 20vw;
   }
+  @media only screen and (min-width: 1280px) {
+    padding-left: 22.5vw;
+    padding-right: 22.5vw;
+  }
+  @media only screen and (min-width: 1536px) {
+    padding-left: 27.5vw;
+    padding-right: 27.5vw;
+  }
+
   margin: '0%';
   animation: fade-in 0.5s ease-in-out;
   text-align: justify;

@@ -1,38 +1,28 @@
 
 import React from 'react';
 
-import { NavLink } from 'react-router-dom';
-
 function NavItem(props : {
-  toRoute: string,
+  className?: string
+  style?: any
   children: any
 }) {
-  const { toRoute, children } = props;
+  const { className, style, children } = props;
   return (
-    <NavLink
-      to={toRoute}
-      style={({ isActive}) => ({
-        textDecoration: 'none',
-        color: isActive ? 'black' : 'gray',
-      })}
+    <span
       className={`
         inline-flex
-        md:min-w-[11em]
-        md:max-w-[11em]
-        max-md:min-w-full
-
-        min-h-[3em]
-        max-h-[3em]
-
-        transition-[color]
-        duration-[0.5s]
-
         items-center
         justify-center
-      `}
+
+        min-w-[100vw]
+        min-h-[7vh]
+
+        md:min-w-[18vw]
+      ` + className}
+      style={style}
     >
       {children}
-    </NavLink>
+    </span>
   );
 }
 

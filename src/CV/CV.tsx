@@ -13,10 +13,10 @@ import {
 } from './Data';
 
 // CSS
-import _cvCSS from './CV.module.css';
-import _basicPage from '../Common/BasicPage.module.css';
-const cvCSS = _cvCSS['main'];
-const basicPageCSS = _basicPage['main'];
+import _basicPageCSS from '../Common/BasicPage.module.css';
+import _cvPageCSS from './CV.module.css';
+const basicPageCSS = _basicPageCSS['main'];
+const cvPageCSS = _cvPageCSS['main'] 
 //const textAlignRight_above768 = _responsive['text-align-right-above-768'];
 // End CSS
 
@@ -31,7 +31,7 @@ export function CVEntry(props : {
   const { title, description, period, children } = props;
   return (
     <div className="mt-2">
-      <span className="inline-block md:w-3/5 max-md:w-full">
+      <span className="inline-block md:w-3/5 w-full">
       <span className="font-bold">{title}</span>
         {description &&
           <span className="max-sm:hidden">
@@ -39,7 +39,7 @@ export function CVEntry(props : {
           </span>
         }
       </span>
-      <span className="inline-block md:w-2/5 max-md:w-full md:text-end">
+      <span className="inline-block md:w-2/5 w-full md:text-end">
         {periodToString(period)}
       </span>
       {description &&
@@ -69,7 +69,7 @@ function CVSection(props: {
 
 function CV() {
   return (
-  <div className={`${basicPageCSS} ${cvCSS}`}>
+  <div className={`${basicPageCSS} ${cvPageCSS}`}>
     <CVSection title='Education' marginTop="mt-0">
       {education.map((ed, index) =>
         <CVEntry
