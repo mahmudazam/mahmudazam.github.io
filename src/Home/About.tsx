@@ -19,7 +19,7 @@ function About() {
   </p>
 
   <p>
-  Before this I researched infinity operads, as part of my master's under
+  Before this, I researched infinity operads, as part of my master's under
   Dr. Alexander Kupers at the University of Toronto. Still before that, as part
   of my undergraduate research with Dr. Steven Rayan at the Univerity of
   Saskatchewan, I developed the basics of a framework for quantum computing in
@@ -28,7 +28,7 @@ function About() {
 
   <p>
   Outside of mathematics, I try to play jazz piano and Indian "classical"
-  music. I am also interested archery, parkour and rock climbing, even though
+  music. I am also interested in archery, parkour and rock climbing, even though
   I don't get to dedicate as much time to these.
   </p>
   </div>
