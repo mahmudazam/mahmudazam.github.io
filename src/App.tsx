@@ -1,12 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-import { useMedia, useNavState } from './state';
-import Header from './Header/Header';
-import { appRoutes } from './structure';
+import { useMedia, useNavState } from './state'
+import Header from './Header/Header'
+import { appRoutes } from './structure'
 
-import styles from './App.module.css';
+import styles from './App.module.css'
 
 function App() {
 
@@ -46,7 +46,7 @@ function App() {
         </Routes>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

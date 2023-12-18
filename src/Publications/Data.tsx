@@ -1,5 +1,5 @@
 
-import { Publication, WhereTag } from './Where';
+import { Publication, WhereTag } from './Where'
 
 export const publications : Array<Publication> = [
 {

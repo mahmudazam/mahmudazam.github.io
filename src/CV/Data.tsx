@@ -1,5 +1,5 @@
 
-import { Period, PeriodTag, SingleDatePeriod } from './CVDate';
+import { Period, PeriodTag, SingleDatePeriod } from './CVDate'
 
 interface EducationEntry {
   degree: string,

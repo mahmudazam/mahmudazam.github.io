@@ -1,15 +1,15 @@
 
-import React from 'react';
+import React from 'react'
 
-import { useMedia, MediaState } from '../state';
+import { useMedia, MediaState } from '../state'
 
 import NavItem from './NavItem'
 
 function Highlighter(props: {
   navSeq: number
 }) {
-  const { navSeq } = props;
-  const md = useMedia((state: MediaState) => state.md);
+  const { navSeq } = props
+  const md = useMedia((state: MediaState) => state.md)
 
   return (
     <NavItem
@@ -43,7 +43,7 @@ function Highlighter(props: {
         `}
       />
     </NavItem>
-  );
+  )
 }
 
-export default Highlighter;
+export default Highlighter

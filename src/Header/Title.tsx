@@ -1,12 +1,12 @@
 
-import React from 'react';
+import React from 'react'
 
 import NavItem from './NavItem'
 
 function Title(props : {
   children: any
 }) {
-  const { children } = props;
+  const { children } = props
   return (
     <NavItem>
       <span className={`
@@ -17,8 +17,8 @@ function Title(props : {
         {children}
       </span>
     </NavItem>
-  );
+  )
 }
 
-export default Title;
+export default Title
 

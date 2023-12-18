@@ -17,7 +17,7 @@ export interface InReview {
   preprintURL?: { path : string, display: string },
 }
 
-export type Where = Journal | InReview;
+export type Where = Journal | InReview
 
 export interface Publication {
   title: string,
@@ -36,7 +36,7 @@ export function whereToJSX(where: Where) {
     return `
       ${where.name}, ${where.volume}(${where.number}):
       ${where.pages.from} --- ${where.pages.to}.
-    `;
+    `
   case WhereTag.INREVIEW:
     return (
       <span>
@@ -49,7 +49,7 @@ export function whereToJSX(where: Where) {
           </span>
         )}.
       </span>
-    );
+    )
   default:
     matchError(where)
   }

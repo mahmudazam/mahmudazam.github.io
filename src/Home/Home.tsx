@@ -1,6 +1,6 @@
 
-import _basicPage from '../Common/BasicPage.module.css';
-const {main : basicPage} = _basicPage;
+import _basicPage from '../Common/BasicPage.module.css'
+const {main : basicPage} = _basicPage
 
 function Home() {
   return (
@@ -33,7 +33,7 @@ function Home() {
   I don't get to dedicate as much time to these.
   </p>
   </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

@@ -1,11 +1,11 @@
 
 import { publications } from './Data'
-import { whereToJSX } from './Where';
+import { whereToJSX } from './Where'
 
-import _basicPage from '../Common/BasicPage.module.css';
-const {main : basicPage} = _basicPage;
+import _basicPage from '../Common/BasicPage.module.css'
+const {main : basicPage} = _basicPage
 
-//var Latex = require('react-latex');
+//var Latex = require('react-latex')
 
 function Publications() {
   return (
@@ -22,7 +22,7 @@ function Publications() {
     </div>
   )}
   </div>
-  );
+  )
 }
 
-export default Publications;
+export default Publications

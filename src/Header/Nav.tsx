@@ -1,11 +1,11 @@
 
-import React from 'react';
+import React from 'react'
 import { useMedia, useNavState } from '../state'
 
 function Nav(props : {
   children: any
 }) {
-  const { children } = props;
+  const { children } = props
   const showNav = useNavState(state => state.showNav)
   const collapseNavDelay = useNavState(state => state.collapseNavDelay)
   const maxMd = useMedia(state => state.maxMd)
@@ -32,7 +32,7 @@ function Nav(props : {
     >
       {children}
     </span>
-  );
+  )
 }
 
-export default Nav;
+export default Nav

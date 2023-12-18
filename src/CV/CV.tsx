@@ -2,7 +2,7 @@
 import {
   periodToString,
   Period,
-} from './CVDate';
+} from './CVDate'
 
 import {
   education,
@@ -10,17 +10,16 @@ import {
   awards,
   work,
   activities,
-} from './Data';
+} from './Data'
 
 // CSS
-import _basicPageCSS from '../Common/BasicPage.module.css';
-import _cvPageCSS from './CV.module.css';
-const basicPageCSS = _basicPageCSS['main'];
+import _basicPageCSS from '../Common/BasicPage.module.css'
+import _cvPageCSS from './CV.module.css'
+const basicPageCSS = _basicPageCSS['main']
 const cvPageCSS = _cvPageCSS['main'] 
-//const textAlignRight_above768 = _responsive['text-align-right-above-768'];
 // End CSS
 
-var Latex = require('react-latex');
+var Latex = require('react-latex')
 
 export function CVEntry(props : {
   title: string,
@@ -28,7 +27,7 @@ export function CVEntry(props : {
   period: Period,
   children: any
 }) {
-  const { title, description, period, children } = props;
+  const { title, description, period, children } = props
   return (
     <div className="mt-2">
       <span className="inline-block md:w-3/5 w-full">
@@ -49,7 +48,7 @@ export function CVEntry(props : {
       }
       {children}
     </div>
-  );
+  )
 }
 
 function CVSection(props: {
@@ -57,14 +56,14 @@ function CVSection(props: {
   marginTop?: string,
   children: any,
 }) {
-  const {title, children, marginTop} = props;
+  const {title, children, marginTop} = props
   return (
     <div className={marginTop ? marginTop : "mt-4"}>
       <div className="font-bold">{title}</div>
       <hr className="mt-0" />
       {children}
     </div>
-  );
+  )
 }
 
 function CV() {
@@ -163,7 +162,7 @@ function CV() {
     </CVSection>
 
   </div>
-  );
+  )
 }
 
-export default CV;
+export default CV

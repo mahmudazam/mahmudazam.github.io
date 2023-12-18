@@ -1,8 +1,8 @@
 
 import Contact from './Contact/Contact'
-import CV from './CV/CV';
-import Home from './Home/Home';
-import Publications from './Publications/Publications';
+import CV from './CV/CV'
+import Home from './Home/Home'
+import Publications from './Publications/Publications'
 
 const _appRoutes : Array<{ path: string,
                                  name: string,
@@ -29,12 +29,12 @@ const _appRoutes : Array<{ path: string,
 },
 ]
 
-const prefix = '/';
+const prefix = '/'
 
 export const appRoutes = _appRoutes.map((appRt, index) => {
   return {
     ...appRt,
     index: index,
     path: prefix + appRt.path,
-  };
-});
+  }
+})

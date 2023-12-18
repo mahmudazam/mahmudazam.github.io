@@ -1,12 +1,12 @@
 
-import React from 'react';
+import React from 'react'
 
 function NavItem(props : {
   className?: string
   style?: any
   children: any
 }) {
-  const { className, style, children } = props;
+  const { className, style, children } = props
   return (
     <span
       className={`
@@ -23,7 +23,7 @@ function NavItem(props : {
     >
       {children}
     </span>
-  );
+  )
 }
 
-export default NavItem;
+export default NavItem

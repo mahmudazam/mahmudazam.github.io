@@ -2,8 +2,8 @@
 export interface SimpleDate { year : number, month: number, day: number }
 
 export function monthName(monthNum : number) {
-  const date = new Date();
-  date.setMonth(monthNum - 1);
+  const date = new Date()
+  date.setMonth(monthNum - 1)
 
   return date.toLocaleString('en-US', { month: 'long' })
 }
@@ -38,30 +38,30 @@ export type Period = StartEndPeriod
             | SingleDatePeriod
 
 export function monthYearString(date: SimpleDate) : string {
-  return `${monthName(date.month)}, ${date.year}`;
+  return `${monthName(date.month)}, ${date.year}`
 }
 
 export function simpleDateToString(date: SimpleDate) : string {
-  return `${monthName(date.month)} ${date.day}, ${date.year}`;
+  return `${monthName(date.month)} ${date.day}, ${date.year}`
 }
 
 function matchError(a : never) : never {
-  throw new Error('Period: error in pattern matching');
-};
+  throw new Error('Period: error in pattern matching')
+}
 
 export function periodToString(period : Period) : any {
   switch(period.tag) {
   case PeriodTag.SE:
-   return `${monthYearString(period.start)} --- ${monthYearString(period.end)}`;
+   return `${monthYearString(period.start)} --- ${monthYearString(period.end)}`
   case PeriodTag.TY:
-   return `${period.term}, ${period.year}`;
+   return `${period.term}, ${period.year}`
   case PeriodTag.DE:
-   return period.description;
+   return period.description
   case PeriodTag.ON:
     return monthYearString(period.start) + ' --- present'
   case PeriodTag.SD:
-    return simpleDateToString(period.date);
+    return simpleDateToString(period.date)
   default:
-    return matchError(period);
+    return matchError(period)
   }
 }

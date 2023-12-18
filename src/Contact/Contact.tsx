@@ -5,15 +5,15 @@ import {
 
 import {
   FaDiscord
-} from 'react-icons/fa';
+} from 'react-icons/fa'
 
 import {
   HiOutlineMail
 } from 'react-icons/hi'
 
 // CSS:
-import _basicPage from '../Common/BasicPage.module.css';
-const {main : basicPage} = _basicPage;
+import _basicPage from '../Common/BasicPage.module.css'
+const {main : basicPage} = _basicPage
 // End CSS
 
 const contacts = [
@@ -48,7 +48,7 @@ function Contact() {
     </div>
   )}
   </div>
-  );
+  )
 }
 
-export default Contact;
+export default Contact
