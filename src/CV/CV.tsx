@@ -6,7 +6,7 @@ import {
 
 import {
   education,
-  invitedTalks,
+  talks,
   awards,
   work,
   activities,
@@ -83,8 +83,8 @@ function CV() {
       )}
     </CVSection>
 
-    <CVSection title='Invited Talks'>
-      {invitedTalks.map((talk, index) =>
+    <CVSection title='Talks'>
+      {talks.map((talk, index) =>
         <CVEntry
             key={index}
             title={talk.title}

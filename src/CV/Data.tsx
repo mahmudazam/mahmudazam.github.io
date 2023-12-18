@@ -10,7 +10,7 @@ interface EducationEntry {
   completed: boolean
 }
 
-interface InvitedTalk {
+interface Talk {
   title: string,
   event: string,
   date: SingleDatePeriod,
@@ -82,7 +82,7 @@ export const education : Array<EducationEntry> = [
 },
 ]
 
-export const invitedTalks : Array<InvitedTalk> = [
+export const talks : Array<Talk> = [
 {
   title: 'TQFTs and Quantum Computing',
   event: 'quanTA Junior Symposium',
