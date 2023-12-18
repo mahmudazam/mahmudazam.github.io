@@ -4,17 +4,16 @@ import {
 } from 'react-icons/di'
 
 import {
-  FaDiscord
+  FaDiscord,
 } from 'react-icons/fa'
 
 import {
   HiOutlineMail
 } from 'react-icons/hi'
 
-// CSS:
-import _basicPage from '../Common/BasicPage.module.css'
-const {main : basicPage} = _basicPage
-// End CSS
+import {
+  MdLocationOn
+} from 'react-icons/md'
 
 const contacts = [
 {
@@ -30,18 +29,22 @@ const contacts = [
 {
   mode: 'Github',
   icon: DiGithubBadge,
-  text: 'github.com/mahmudfasihulazam',
-  url: 'https://github.com/mahmudfasihulazam',
-}
+  text: 'github.com/mahmudazam',
+  url: 'https://github.com/mahmudazam',
+},
+{
+  mode: 'Location',
+  icon: MdLocationOn,
+  text: 'Saskatoon, Canada',
+},
 ]
 
 function Contact() {
   return (
-  <div className={basicPage}>
+  <div>
   {contacts.map((contact, index) =>
-    <div key={index} className="mb-4">
-      <contact.icon />
-      <span className="font-bold">{contact.mode}: </span>
+    <div key={index} className="mt-1">
+      <contact.icon className="relative top-1 text-[1em] mr-2" />
       {(contact.url && <a href={contact.url}>{contact.text}</a>)
         || contact.text
       }

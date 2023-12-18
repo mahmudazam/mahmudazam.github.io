@@ -1,5 +1,4 @@
 
-import Contact from './Contact/Contact'
 import CV from './CV/CV'
 import Home from './Home/Home'
 import Publications from './Publications/Publications'
@@ -21,11 +20,6 @@ const _appRoutes : Array<{ path: string,
   path: 'publications',
   name: 'Publications',
   component: Publications,
-},
-{
-  path: 'contact',
-  name: 'Contact',
-  component: Contact,
 },
 ]
 
