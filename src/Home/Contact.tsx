@@ -1,43 +1,14 @@
 
-import {
-  DiGithubBadge,
-} from 'react-icons/di'
+const contact_data = require('./contact_data')
 
-import {
-  FaDiscord,
-} from 'react-icons/fa'
+export interface ContactEntry {
+  mode: string,
+  icon: any,
+  text: string,
+  url?: string,
+}
 
-import {
-  HiOutlineMail
-} from 'react-icons/hi'
-
-import {
-  MdLocationOn
-} from 'react-icons/md'
-
-const contacts = [
-{
-  mode: 'Email',
-  icon: HiOutlineMail,
-  text: 'first name dot last name at usask dot ca'
-},
-{
-  mode: 'Discord',
-  icon: FaDiscord,
-  text: 'firstnamelastname'
-},
-{
-  mode: 'Github',
-  icon: DiGithubBadge,
-  text: 'github.com/mahmudazam',
-  url: 'https://github.com/mahmudazam',
-},
-{
-  mode: 'Location',
-  icon: MdLocationOn,
-  text: 'Saskatoon, Canada',
-},
-]
+export const contacts : Array<ContactEntry> = contact_data.contacts
 
 function Contact() {
   return (

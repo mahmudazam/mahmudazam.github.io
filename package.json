@@ -25,6 +25,7 @@
     "zustand": "^4.4.7"
   },
   "scripts": {
+    "build-cv-tex": "node ./src/scripts/cv-tex.js ./cv-pdf",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

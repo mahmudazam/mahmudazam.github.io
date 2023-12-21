@@ -16,6 +16,12 @@ jobs:
       with:
         node-version: '20.10.0'
     - run: npm ci
+    - run: npm run build-cv-tex
+    - uses: xu-cheng/latex-action@v3
+      with:
+        root_file: MahmudAzam.tex
+        working_directory: cv-pdf
+    - run: mv cv-pdf/*.pdf public
     - run: npm run build
     - name: Package static files to deploy
       uses: actions/upload-pages-artifact@v3.0.0

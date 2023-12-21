@@ -12,6 +12,8 @@ import {
   activities,
 } from './Data'
 
+import { FaRegFilePdf } from 'react-icons/fa'
+
 // CSS
 import _basicPageCSS from '../Common/BasicPage.module.css'
 import _cvPageCSS from './CV.module.css'
@@ -69,7 +71,10 @@ function CVSection(props: {
 function CV() {
   return (
   <div className={`${basicPageCSS} ${cvPageCSS}`}>
-    <CVSection title='Education' marginTop="mt-0">
+    <a href="/MahmudAzam.pdf">
+      <FaRegFilePdf className="relative top-1 text-[1em] mr-2"/>Download a PDF
+    </a>
+    <CVSection title='Education'>
       {education.map((ed, index) =>
         <CVEntry
           key={index}
