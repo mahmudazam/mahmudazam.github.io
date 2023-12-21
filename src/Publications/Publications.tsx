@@ -1,5 +1,5 @@
 
-import { publications } from './Data'
+import { publications, orderLastName } from './Data'
 import { whereToJSX } from './Where'
 
 import _basicPage from '../Common/BasicPage.module.css'
@@ -13,7 +13,7 @@ function Publications() {
   {publications.map((pub, index) =>
     <div key={index} className="mb-4">
     {(index + 1)}
-    . With {pub.author
+    . With {orderLastName(pub.author)
         .filter(auth => auth !== 'Mahmud Azam')
         .map((auth, authInd, arr) =>
           auth + (authInd < arr.length - 1 ? ' and ' : '')

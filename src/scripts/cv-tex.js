@@ -10,7 +10,8 @@ const {
 } = require('../CV/data.js')
 
 const {
-  publications
+  publications,
+  orderLastName,
 } = require('../Publications/data.js')
 const { WhereTag } = require('../Publications/where')
 
@@ -64,7 +65,7 @@ ${lines.filter(ln => ln !== undefined)
 
 const publicationEntry = (pub) => `
 \\item With
-${pub.author
+${orderLastName(pub.author)
   .filter(auth => auth !== 'Mahmud Azam')
   .reduce((acc, curr, index, arr) =>
   curr + (index > 0 ? (index < arr.length - 1 ? ', ' : ' and ') : '') + acc

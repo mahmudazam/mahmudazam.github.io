@@ -32,6 +32,7 @@ const publications = [
   },
   time: { year: 2021, month: 7, day: 14 },
 },
-].map(pub => ({...pub, author: orderLastName(pub.author)}))
+]
 
 exports.publications = publications
+exports.orderLastName = orderLastName
