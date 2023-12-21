@@ -1,6 +1,12 @@
 
 const { WhereTag } = require('./where')
 
+function orderLastName(authors) {
+  return authors.map(auth => auth.split(/\s+/))
+                .sort((a, b) => a[1] >= b[1])
+                .map(auth => auth[0] + ' ' + auth[1])
+}
+
 const publications = [
 {
   title: 'TQFTs and Quantum Computing',
@@ -26,5 +32,6 @@ const publications = [
   },
   time: { year: 2021, month: 7, day: 14 },
 },
-]
+].map(pub => ({...pub, author: orderLastName(pub.author)}))
+
 exports.publications = publications

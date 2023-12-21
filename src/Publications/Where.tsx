@@ -43,9 +43,9 @@ export function whereToJSX(where: Where) {
         In review
         {where.preprintURL && (
           <span>
-            ; preprint: <a href={where.preprintURL.path}>
+            {' '}(preprint: <a href={where.preprintURL.path}>
               {where.preprintURL.display}
-            </a>
+            </a>)
           </span>
         )}.
       </span>

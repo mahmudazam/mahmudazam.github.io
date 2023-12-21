@@ -13,9 +13,11 @@ function Publications() {
   {publications.map((pub, index) =>
     <div key={index} className="mb-4">
     {(index + 1)}
-    . {pub.author.map((auth, authInd) =>
-        auth + (authInd < pub.author.length - 1 ? ' and ' : '')
-      )}
+    . With {pub.author
+        .filter(auth => auth !== 'Mahmud Azam')
+        .map((auth, authInd, arr) =>
+          auth + (authInd < arr.length - 1 ? ' and ' : '')
+        )}
     . {pub.time.year}
     . <span className="italic">{pub.title}</span>
     . {whereToJSX(pub.where)}

@@ -63,8 +63,10 @@ ${lines.filter(ln => ln !== undefined)
 `
 
 const publicationEntry = (pub) => `
-\\item
-${pub.author.reduce((acc, curr, index, arr) =>
+\\item With
+${pub.author
+  .filter(auth => auth !== 'Mahmud Azam')
+  .reduce((acc, curr, index, arr) =>
   curr + (index > 0 ? (index < arr.length - 1 ? ', ' : ' and ') : '') + acc
 , '')}.
 ${pub.time.year}.
@@ -75,7 +77,7 @@ ${(() => {
     return `${pub.where.name}, ${pub.where.volume}(${pub.where.number}):`
       + `${pub.where.pages.from} --- ${pub.where.pages.to}.`
   case WhereTag.INREVIEW:
-    return `In review (Preprint: \\href{${pub.where.preprintURL.path}}`
+    return `In review (preprint: \\href{${pub.where.preprintURL.path}}`
                                     + `{${pub.where.preprintURL.display}}).`
   }
 })()}
