@@ -12,14 +12,14 @@ const _appRoutes : Array<{ path: string,
   component: Home,
 },
 {
-  path: 'cv',
-  name: 'CV',
-  component: CV,
-},
-{
   path: 'publications',
   name: 'Publications',
   component: Publications,
+},
+{
+  path: 'cv',
+  name: 'CV',
+  component: CV,
 },
 ]
 
