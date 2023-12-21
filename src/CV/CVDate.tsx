@@ -1,11 +1,10 @@
 
+const cv_date = require('./cv_date.js')
+
 export interface SimpleDate { year : number, month: number, day: number }
 
 export function monthName(monthNum : number) {
-  const date = new Date()
-  date.setMonth(monthNum - 1)
-
-  return date.toLocaleString('en-US', { month: 'long' })
+  return cv_date.monthName(monthNum)
 }
 
 export enum PeriodTag {
@@ -13,8 +12,9 @@ export enum PeriodTag {
   TY = 'TermYearPeriod',
   DE = 'DescriptionPeriod',
   ON = 'OngoingPeriod',
-  SD = 'SingDatePeriod'
+  SD = 'SingleDatePeriod',
 }
+
 export interface StartEndPeriod {
   readonly tag: PeriodTag.SE, start: SimpleDate, end: SimpleDate
 }
@@ -38,11 +38,11 @@ export type Period = StartEndPeriod
             | SingleDatePeriod
 
 export function monthYearString(date: SimpleDate) : string {
-  return `${monthName(date.month)}, ${date.year}`
+  return cv_date.monthYearString(date)
 }
 
 export function simpleDateToString(date: SimpleDate) : string {
-  return `${monthName(date.month)} ${date.day}, ${date.year}`
+  return cv_date.simpleDateToString(date)
 }
 
 function matchError(a : never) : never {
