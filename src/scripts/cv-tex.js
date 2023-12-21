@@ -134,10 +134,10 @@ ${awards.map(award =>
         award.period,
         [
           (award.authority
-            ? 'Awarded by ' + award.authority + ', at '
+            ? 'Awarded by {\\it ' + award.authority + '} at '
             : '')
-          + award.institution
-          + ', ' + (award.endNote ? award.endNote : '')
+          + '{\\it ' + award.institution + '}'
+          + (award.endNote ? ', ' + award.endNote : '')
         ])
 ).join(NLSm + '\n')}
 
