@@ -11,7 +11,7 @@ exports.education = [
   },
   institution: 'University of Saskatchewan',
   supervisor: 'Dr. Steven Rayan',
-  thesis: 'Moduli Stacks and Homotopy Theory (tentative)',
+  thesis: 'Moduli Stacks, Homotopy Theory, and QFTs (tentative)',
   completed: false,
 },
 {
@@ -41,6 +41,15 @@ exports.education = [
 ]
 
 exports.talks = [
+{
+  title: 'Functorial QFT from First Principles',
+  event: 'Mathematics Graduate Student Seminar on QFT',
+  date: {
+    tag: cv_date.PeriodTag.SD,
+    date: { year: 2024, month: 2, day: 2 }
+  },
+  location: 'University of Saskatchewan'
+},
 {
   title: 'TQFTs and Quantum Computing',
   event: 'quanTA Junior Symposium',
