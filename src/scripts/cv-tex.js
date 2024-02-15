@@ -36,8 +36,12 @@ const NLSm = `${NL}[-0.75em]`
 const header = `
 \\begin{center}
 {\\bf\\large Mahmud Azam}${NL}
-${[contacts[0], contacts[2], contacts[3]].map(c => c.text)
-                                         .join('\n\\textbar\\ ')}
+${[
+  contacts[0],
+  { text: '\\href{https://mahmudazam.github.io}{mahmudazam.github.io}' },
+  contacts[3]
+].map(c => c.text)
+ .join('\n\\textbar\\ ')}
 \\end{center}
 `
 
