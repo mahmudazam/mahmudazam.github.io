@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build-cv-tex": "node ./src/scripts/cv-tex.js ./cv-pdf",
+    "build-sitemap": "node ./src/scripts/sitemap-gen.js ./public",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

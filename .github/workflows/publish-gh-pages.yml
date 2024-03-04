@@ -22,6 +22,7 @@ jobs:
         root_file: MahmudAzam.tex
         working_directory: cv-pdf
     - run: mv cv-pdf/*.pdf public
+    - run: npm run build-sitemap
     - run: npm run build
     - name: Package static files to deploy
       uses: actions/upload-pages-artifact@v3.0.0
