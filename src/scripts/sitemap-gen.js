@@ -11,7 +11,7 @@ const routes = [
 ]
 const TODAY = new Date().toISOString().split('T')[0]
 
-const xmlSitemap = `
+const xmlSitemap = `\
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schema/sitemap/0.9">${routes.map(r => `
   <url>
