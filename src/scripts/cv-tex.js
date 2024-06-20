@@ -79,8 +79,14 @@ ${pub.time.year}.
 ${(() => {
   switch(pub.where.tag) {
   case WhereTag.JOURNAL:
-    return `${pub.where.name}, ${pub.where.volume}(${pub.where.number}):`
-      + `${pub.where.pages.from} --- ${pub.where.pages.to}.`
+    return `${pub.where.name}, ${pub.where.volume}`
+      + (pub.where.number ? ('(' + pub.where.number + ')') : '') + ': page '
+      + pub.where.pages.from
+      + (pub.where.pages.to ? ('---' + pub.where.pages.to) : '')
+      + '.'
+      + (pub.where.preprintURL ? `\\\\\\href{${pub.where.preprintURL.path}}`
+                                 + `{${pub.where.preprintURL.display}}`
+                               : '')
   case WhereTag.INREVIEW:
     return `In review (preprint: \\href{${pub.where.preprintURL.path}}`
                                     + `{${pub.where.preprintURL.display}}).`
@@ -91,6 +97,7 @@ ${(() => {
 const doc = `
 \\documentclass[10pt]{article}
 
+\\usepackage{amsmath}
 \\usepackage{enumitem}
 \\usepackage{hyperref}
   \\hypersetup{

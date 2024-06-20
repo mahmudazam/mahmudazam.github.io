@@ -1,4 +1,6 @@
 
+var Latex = require('react-latex')
+
 export enum WhereTag {
   JOURNAL = "Journal",
   INREVIEW = "InReview",
@@ -9,12 +11,13 @@ export interface Journal {
   name: string,
   volume: number,
   number: number,
-  pages: { from : number, to: number },
+  pages: { from : number, to : number },
+  preprintURL?: { path: string, display : string },
 }
 
 export interface InReview {
   readonly tag: WhereTag.INREVIEW,
-  preprintURL?: { path : string, display: string },
+  preprintURL?: { path : string, display : string },
 }
 
 export type Where = Journal | InReview
@@ -33,10 +36,18 @@ function matchError(n: never) : never {
 export function whereToJSX(where: Where) {
   switch(where.tag) {
   case WhereTag.JOURNAL:
-    return `
-      ${where.name}, ${where.volume}(${where.number}):
-      ${where.pages.from} --- ${where.pages.to}.
-    `
+    return (<span>
+      <Latex>{where.name}</Latex>
+      , {where.volume}{where.number && `(${where.number})`}
+      : page {where.pages.from}{where.pages.to && '---' + where.pages.to}
+      . {where.preprintURL && (
+          <span>
+            <a href={where.preprintURL.path}>
+              {where.preprintURL.display}
+            </a>
+          </span>
+      )}
+    </span>)
   case WhereTag.INREVIEW:
     return (
       <span>

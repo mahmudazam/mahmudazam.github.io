@@ -12,8 +12,12 @@ const publications = [
   title: 'TQFTs and Quantum Computing',
   author: ['Mahmud Azam', 'Steven Rayan'],
   where: {
-    tag: WhereTag.INREVIEW,
-    preprintURL : {
+    tag: WhereTag.JOURNAL,
+    name: 'Bulletin des Science Math$\\text{\\\'{e}}$matiques',
+    volume: 194,
+    pages: { from : 103454 },
+    time: { year: 2024 },
+    preprintURL: {
       path: 'https://arxiv.org/abs/2210.03556',
       display: 'arXiv:2210.03556',
     }
