@@ -81,6 +81,28 @@ exports.talks = [
 
 exports.awards = [
 {
+  name: 'High-Level Scientific Fellowship',
+  institution: 'Government of France',
+  currency: '€',
+  value: '3,400',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'October 1 --- November 30, 2024'
+  },
+  endNote: 'for two-month research collaboration at CEA Saclay'
+},
+{
+  name: 'Arithmetic Quantum Field Theory Conference Fellowship',
+  authority: 'Center of Mathematical Sciences and Applications',
+  institution: 'Harvard University',
+  currency: 'US$',
+  value: '2,200',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'March 25 --- 29, 2024'
+  }
+},
+{
   name: 'Canada Graduate Scholarship --- Doctoral',
   authority: 'NSERC',
   institution: 'University of Saskatchewan',
