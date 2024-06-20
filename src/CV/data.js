@@ -98,6 +98,19 @@ exports.talks = [
 },
 ]
 
+exports.services = [
+{
+  description: 'Organized CMS Scientific Session on '
+                + 'Geometry and Representation Session',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'June 2 --- June 3, 2024'
+  },
+  event: 'CMS Summer Meeting',
+  location: 'University of Saskatchewan'
+}
+]
+
 exports.awards = [
 {
   name: 'High-Level Scientific Fellowship',

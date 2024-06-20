@@ -21,6 +21,13 @@ interface Talk {
   }>
 }
 
+interface Service {
+  description: string,
+  period?: Period,
+  event?: string,
+  location?: string,
+}
+
 interface Award {
   name: string,
   description?: string,
@@ -50,6 +57,8 @@ interface Activity {
 export const education : Array<EducationEntry> = data.education
 
 export const talks : Array<Talk> = data.talks
+
+export const services : Array<Service> = data.services
 
 export const awards : Array<Award> = data.awards
 

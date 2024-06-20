@@ -5,6 +5,7 @@ const {
   education,
   awards,
   talks,
+  services,
   work,
   activities
 } = require('../CV/data.js')
@@ -169,6 +170,13 @@ ${awards.map(award =>
           + '{\\it ' + award.institution + '}'
           + (award.endNote ? ', ' + award.endNote : '')
         ])
+).join(entrySep)}
+
+${sectionHead('Services')}
+${services.map(service => entry(service.description, undefined, service.period,
+  [
+  `{\\it ${service.event}}${service.location ? ', ' + service.location : ''}`
+  ])
 ).join(entrySep)}
 
 ${sectionHead('Work')}

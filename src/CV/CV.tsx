@@ -7,6 +7,7 @@ import {
 import {
   education,
   talks,
+  services,
   awards,
   work,
   activities,
@@ -165,6 +166,21 @@ function CV() {
               {', ' + award.endNote}
             </span>}
           </div>
+        </CVEntry>
+      )}
+    </CVSection>
+
+    <CVSection title='Services'>
+      {services.map((service, index) =>
+        <CVEntry
+          key={index}
+          title={service.description}
+          period={service.period}
+        >
+        <div>
+        <span className="italic">{service.event}</span>
+        {service.location && <span>, {service.location}</span>}
+        </div>
         </CVEntry>
       )}
     </CVSection>
