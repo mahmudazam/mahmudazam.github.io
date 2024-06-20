@@ -4,9 +4,6 @@ const fs = require('fs')
 const MAIN_URL = 'https://mahmudazam.github.io'
 const routes = [
   '',
-  '#/',
-  '#/publications',
-  '#/cv',
   'MahmudAzam.pdf'
 ]
 const TODAY = new Date().toISOString().split('T')[0]
