@@ -26,7 +26,7 @@ var Latex = require('react-latex')
 export function CVEntry(props : {
   title: string,
   description?: string,
-  period: Period,
+  period?: Period,
   children: any
 }) {
   const { title, description, period, children } = props
@@ -40,15 +40,34 @@ export function CVEntry(props : {
           </span>
         }
       </span>
-      <span className="inline-block md:w-2/5 w-full md:text-end">
+      {period && <span className="inline-block md:w-2/5 w-full md:text-end">
         {periodToString(period)}
-      </span>
+      </span>}
       {description &&
         <div className="md:hidden">
           <span className="italic">{description}</span>
         </div>
       }
       {children}
+    </div>
+  )
+}
+
+export function TalkSubEntry(props : {
+  description: string,
+  period: Period,
+  location: string,
+}) {
+  const { description, period, location } = props
+  return (
+    <div className="m-0 p-0">
+      <span className="inline-block md:w-4/5 w-full">
+        <span className="italic">{description}</span>
+        , <span>{location}</span>
+      </span>
+      {period && <span className="inline-block md:w-1/5 w-full md:text-end">
+        {periodToString(period)}
+      </span>}
     </div>
   )
 }
@@ -89,17 +108,33 @@ function CV() {
     </CVSection>
 
     <CVSection title='Talks'>
-      {talks.map((talk, index) =>
-        <CVEntry
-            key={index}
-            title={talk.title}
-            period={talk.date}
-        >
-          <div>
-            <span className="italic">{talk.event}</span>
-            , {talk.location}
+      {talks.map((talk, index) => talk.events.length === 1
+        ?
+          <CVEntry
+              key={index}
+              title={talk.title}
+              period={talk.events[0].date}
+          >
+            <div>
+              <span className="italic">{talk.events[0].event}</span>
+              , {talk.events[0].location}
+            </div>
+          </CVEntry>
+        : <CVEntry
+              key={index}
+              title={talk.title}
+          >
+          <div className="p-0 m-0">
+          {talk.events.map((e, index) =>
+            <TalkSubEntry
+              key={index}
+              description={e.event}
+              period={e.date}
+              location={e.location}
+            />
+          )}
           </div>
-        </CVEntry>
+          </CVEntry>
       )}
     </CVSection>
 

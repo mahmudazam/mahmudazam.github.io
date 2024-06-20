@@ -42,40 +42,59 @@ exports.education = [
 
 exports.talks = [
 {
+  title: 'TQFTs and Quantum Computing',
+  events: [
+  {
+    event: 'Math. Apects of Quantum Sc. and Tech., CMS Summer Meeting',
+    date: {
+      tag: cv_date.PeriodTag.SD,
+      date: { year: 2024, month: 6, day: 2 },
+    },
+    location: 'University of Ottawa'
+  },
+  {
+    event: 'quanTA Junior Symposium',
+    date: {
+      tag: cv_date.PeriodTag.SD,
+      date: { year: 2023, month: 6, day: 29 }
+    },
+    location: 'University of Saskatchewan'
+  },
+  {
+    event: 'Quantum Information Theory, CMS Summer Meeting',
+    date: {
+      tag: cv_date.PeriodTag.SD,
+      date: { year: 2023, month: 6, day: 3 },
+    },
+    location: 'University of Ottawa'
+  },
+  ]
+},
+{
   title: 'Functorial QFT from First Principles',
-  event: 'Mathematics Graduate Student Seminar on QFT',
-  date: {
-    tag: cv_date.PeriodTag.SD,
-    date: { year: 2024, month: 2, day: 2 }
+  events: [
+  {
+    event: 'Mathematics Graduate Student Seminar on QFT',
+    date: {
+      tag: cv_date.PeriodTag.SD,
+      date: { year: 2024, month: 2, day: 2 }
+    },
+    location: 'University of Saskatchewan'
   },
-  location: 'University of Saskatchewan'
-},
-{
-  title: 'TQFTs and Quantum Computing',
-  event: 'quanTA Junior Symposium',
-  date: {
-    tag: cv_date.PeriodTag.SD,
-    date: { year: 2023, month: 6, day: 29 }
-  },
-  location: 'University of Saskatchewan'
-},
-{
-  title: 'TQFTs and Quantum Computing',
-  event: 'Scientific Session on Quantum Information Theory, CMS Summer Meeting',
-  date: {
-    tag: cv_date.PeriodTag.SD,
-    date: { year: 2023, month: 6, day: 3 },
-  },
-  location: 'University of Ottawa'
+  ],
 },
 {
   title: 'TQFTs through Parallel Transport and Quantum Computing',
-  event: 'The Calgary Peripatetic Seminar',
-  date: {
-    tag: cv_date.PeriodTag.SD,
-    date: { year: 2021, month: 9, day: 24 },
+  events: [
+  {
+    event: 'The Calgary Peripatetic Seminar',
+    date: {
+      tag: cv_date.PeriodTag.SD,
+      date: { year: 2021, month: 9, day: 24 },
+    },
+    location: 'University of Calgary'
   },
-  location: 'University of Calgary'
+  ],
 },
 ]
 

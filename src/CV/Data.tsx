@@ -14,9 +14,11 @@ interface EducationEntry {
 
 interface Talk {
   title: string,
-  event: string,
-  date: SingleDatePeriod,
-  location: string
+  events: Array<{
+    event: string,
+    date: SingleDatePeriod,
+    location: string
+  }>
 }
 
 interface Award {

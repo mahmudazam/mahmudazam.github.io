@@ -30,8 +30,7 @@ const TEX = FNAME + '.tex'
 console.log('> CV .tex will be written at ' + CV_BUILD_DIR + '/' + TEX)
 
 const NL = '\\\\'
-const NL1 = `${NL}[1em]`
-const NLSm = `${NL}[-0.75em]`
+const entrySep = '\n\n\\vspace{0.55em}\n\n'
 
 const header = `
 \\begin{center}
@@ -46,8 +45,8 @@ ${[
 `
 
 const sectionHead = (title, marginTop = true) => `
-${marginTop ? '\\vspace{0.75em}' : ''}
-{\\noindent\\bf ${title}}${NLSm}
+${marginTop ? '\\vspace{0.55em}' : ''}
+{\\noindent\\bf ${title}}${entrySep}
 \\hrule
 \\vspace{0.35em}
 `
@@ -59,12 +58,25 @@ const entry = (title, desc, period, lines) => `
   >{\\hsize=0.4\\linewidth\\raggedleft\\arraybackslash}X
   @{}
 }
-{\\bf ${title}}${desc ? ' ({\\it ' + desc + '})' : ''} &
-${periodToString(period)}
+{\\bf ${title}}${desc ? ' ({\\it ' + desc + '})' : ''} & ${period ? periodToString(period) : ''}
 \\end{tabularx}
 ${lines.filter(ln => ln !== undefined)
        .map(ln => ln)
        .join(NL + '\n')}
+`
+
+const entrySubList = (entries) => `
+\\noindent\\begin{tabularx}{\\textwidth}{
+  @{}
+  >{\\hsize=0.7\\linewidth\\arraybackslash}X
+  >{\\hsize=0.3\\linewidth\\raggedleft\\arraybackslash}X
+  @{}
+}
+${entries.map((e, index) =>
+  e.desc + ' & ' + periodToString(e.period)
+).join('\\\\\n')
+}
+\\end{tabularx}
 `
 
 const publicationEntry = (pub) => `
@@ -107,7 +119,7 @@ const doc = `
     citecolor={green!55!black}
   }
 \\usepackage{palatino}
-\\usepackage[margin=0.75in]{geometry}
+\\usepackage[margin=0.55in]{geometry}
 \\usepackage{tabularx}
 \\usepackage{xcolor}
 
@@ -122,7 +134,7 @@ ${education.map(ed => entry(ed.degree, ed.institution, ed.period, [
     `Supervisor: ${ed.supervisor}`,
     `Thesis: ${ed.thesis}`
   ])
-).join(NLSm + '\n')}
+).join(entrySep)}
 
 ${sectionHead('Publications')}
 \\begin{enumerate}[topsep=0pt, itemsep=0pt, leftmargin=*]
@@ -131,10 +143,17 @@ ${publications.map(publicationEntry)
 \\end{enumerate}
 
 ${sectionHead('Talks')}
-${talks.map(talk => entry(talk.title, undefined, talk.date, [
-    `{\\it ${talk.event}}, ${talk.location}`
-  ])
-).join(NLSm + '\n')}
+${talks.map(talk => talk.events.length === 1
+  ? entry(talk.title, undefined, talk.events[0].date, [
+      `{\\it ${talk.events[0].event}}, ${talk.events[0].location}`
+    ])
+  : entry(talk.title, undefined, undefined, [
+      entrySubList(talk.events.map(e => ({
+        desc: `{\\it ${e.event}}, ${e.location}`,
+        period: e.date
+      })))
+    ])
+).join(entrySep)}
 
 ${sectionHead('Awards')}
 ${awards.map(award =>
@@ -150,20 +169,20 @@ ${awards.map(award =>
           + '{\\it ' + award.institution + '}'
           + (award.endNote ? ', ' + award.endNote : '')
         ])
-).join(NLSm + '\n')}
+).join(entrySep)}
 
 ${sectionHead('Work')}
 ${work.map(w => entry(w.position, w.description, w.period, [
     `{\\it ${w.institution}}${w.endNote ? ', ' + w.endNote : ''}`
   ])
-).join(NLSm + '\n')}
+).join(entrySep)}
 
 ${sectionHead('Activities')}
 ${activities.map(a => entry(a.activity, undefined, a.period, [
     a.where,
     a.description
   ])
-).join(NLSm + '\n')}
+).join(entrySep)}
 
 \\end{small}
 
