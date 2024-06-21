@@ -22,7 +22,7 @@ const publications = [
       display: 'arXiv:2210.03556',
     }
   },
-  time: { year: 2022, month: 8, day: 15 },
+  time: { year: 2024, month: 8, day: 15 },
 },
 {
   title: 'Uniformly quasi-Hermitian groups are supramenable',
