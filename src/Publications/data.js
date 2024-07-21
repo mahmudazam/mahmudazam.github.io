@@ -9,7 +9,19 @@ function orderLastName(authors) {
 
 const publications = [
 {
-  title: 'TQFTs and Quantum Computing',
+  title: 'Moduli stacks of quiver bundles with applications to Higgs bundles',
+  author: ['Mahmud Azam', 'Steven Rayan'],
+  where: {
+    tag: WhereTag.INREVIEW,
+    preprintURL :{
+      path: 'https://arxiv.org/abs/2407.11958',
+      display: 'arXiv:2407.11958',
+    },
+  },
+  time: { year: 2024 },
+},
+{
+  title: 'TQFTs and quantum computing',
   author: ['Mahmud Azam', 'Steven Rayan'],
   where: {
     tag: WhereTag.JOURNAL,
