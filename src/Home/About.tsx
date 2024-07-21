@@ -15,6 +15,12 @@ function About() {
   long-term goals are to unify these ideas with the theme
   of <a href="https://ncatlab.org/nlab/show/higher+geometry">
     homotopical or higher geometry
+  </a>, or, perhaps even more comprehensively, to carry out this work in one or
+  more of the available models of derived analytic geometry
+  such as <a href="https://www.math.uni-bonn.de/people/scholze/Analytic.pdf">
+    that of Clausen-Scholze
+  </a>, or <a href="https://arxiv.org/abs/2405.07936">
+    that of Ben-Bassat-Kelly-Kremnitzer
   </a>.
   </p>
 
@@ -28,7 +34,9 @@ function About() {
 
   <p>
   Outside of mathematics, I try to play jazz piano and Indian "classical"
-  music. I am also interested in archery, parkour and rock climbing, even though
+  music. Recently, I have restarted playing the drums and have started to learn
+  a bit of accordion.
+  I am also interested in archery, parkour and rock climbing, even though
   I don't get to dedicate as much time to these.
   </p>
   </div>
