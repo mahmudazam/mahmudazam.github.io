@@ -170,7 +170,7 @@ function CV() {
       )}
     </CVSection>
 
-    <CVSection title='Services'>
+    <CVSection title='Service'>
       {services.map((service, index) =>
         <CVEntry
           key={index}

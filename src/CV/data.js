@@ -101,7 +101,7 @@ exports.talks = [
 exports.services = [
 {
   description: 'Organized CMS Scientific Session on '
-                + 'Geometry and Representation Session',
+                + 'Geometry and Representation Theory',
   period: {
     tag: cv_date.PeriodTag.DE,
     description: 'June 2 --- June 3, 2024'

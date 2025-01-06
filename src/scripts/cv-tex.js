@@ -172,7 +172,7 @@ ${awards.map(award =>
         ])
 ).join(entrySep)}
 
-${sectionHead('Services')}
+${sectionHead('Service')}
 ${services.map(service => entry(service.description, undefined, service.period,
   [
   `{\\it ${service.event}}${service.location ? ', ' + service.location : ''}`
