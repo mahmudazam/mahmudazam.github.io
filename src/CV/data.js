@@ -42,6 +42,19 @@ exports.education = [
 
 exports.talks = [
 {
+  title: 'Moduli Spaces of Arrows',
+  events: [
+  {
+    event: 'The Calgary Peripatetic Seminar',
+    date: {
+      tag: cv_date.PeriodTag.SD,
+      date: { year: 2024, month: 12, day: 6 },
+    },
+    location: 'University of Calgary'
+  },
+  ]
+},
+{
   title: 'TQFTs and Quantum Computing',
   events: [
   {
