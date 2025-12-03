@@ -127,7 +127,7 @@ exports.services = [
 exports.awards = [
 {
   name: 'Innovation Award',
-  institution: 'GenQ Hackathon, Calgary by QAI Ventures',
+  institution: 'GenQ Hackathon, Calgary',
   currency: 'CA$',
   value: '200',
   period: {
