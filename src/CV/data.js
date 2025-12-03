@@ -63,7 +63,7 @@ exports.talks = [
       tag: cv_date.PeriodTag.SD,
       date: { year: 2024, month: 6, day: 2 },
     },
-    location: 'University of Ottawa'
+    location: 'University of Saskatchewan'
   },
   {
     event: 'quanTA Junior Symposium',
