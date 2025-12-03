@@ -126,6 +126,17 @@ exports.services = [
 
 exports.awards = [
 {
+  name: 'Innovation Award',
+  institution: 'GenQ Hackathon, Calgary by QAI Ventures',
+  currency: 'CA$',
+  value: '200',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'October 3 --- 5, 2025'
+  },
+  endNote: 'for winning Electricity Grid Management challenge'
+},
+{
   name: 'High-Level Scientific Fellowship',
   institution: 'Government of France',
   currency: '€',
@@ -385,7 +396,7 @@ exports.activities = [
   activity: 'USask Programming Contests',
   period: {
     tag: cv_date.PeriodTag.DE,
-    description: 'Participate regularly'
+    description: 'Participated regularly 2016 --- 2023'
   },
   description: `Our team achieved first place in Winter, 2023 (open category),
                 and Winter, 2020`
