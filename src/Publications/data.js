@@ -9,6 +9,18 @@ function orderLastName(authors) {
 
 const publications = [
 {
+  title: 'Moduli stacks of quiver connections and non-Abelian Hodge theory',
+  author: ['Mahmud Azam', 'Steven Rayan'],
+  where: {
+    tag: WhereTag.INREVIEW,
+    preprintURL :{
+      path: 'https://arxiv.org/abs/2512.12188',
+      display: 'arXiv:2512.12188',
+    },
+  },
+  time: { year: 2025 },
+},
+{
   title: 'Moduli stacks of quiver bundles with applications to Higgs bundles',
   author: ['Mahmud Azam', 'Steven Rayan'],
   where: {
