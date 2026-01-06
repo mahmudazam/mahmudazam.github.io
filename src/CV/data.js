@@ -340,6 +340,16 @@ exports.awards = [
 
 exports.work = [
 {
+  position: 'Marker',
+  description: 'MATH 450/872: Algebraic Geometry through Moduli',
+  institution: 'University of Saskatchewan',
+  period: {
+    tag: cv_date.PeriodTag.TY,
+    term: 'Fall',
+    year: 2024,
+  },
+},
+{
   position: 'Teaching Assistant',
   description: 'MAT 137: Calculus with Proofs',
   institution: 'University of Toronto',
