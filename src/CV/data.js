@@ -11,7 +11,7 @@ exports.education = [
   },
   institution: 'University of Saskatchewan',
   supervisor: 'Dr. Steven Rayan',
-  thesis: 'Moduli Stacks, Homotopy Theory, and QFTs (tentative)',
+  thesis: 'Moduli Stacks, non-Abelian Hodge theory, and QFTs (tentative)',
   completed: false,
 },
 {
