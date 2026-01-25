@@ -126,6 +126,17 @@ exports.services = [
 
 exports.awards = [
 {
+  name: 'DND/NSERC Supplemental Funding Award',
+  authority: 'DND and NSERC',
+  institution: 'University of Saskatchewan',
+  currency: 'CA$',
+  value: '10,000',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: '2026'
+  }
+},
+{
   name: 'Innovation Award',
   institution: 'GenQ Hackathon, Calgary',
   currency: 'CA$',
