@@ -42,6 +42,19 @@ exports.education = [
 
 exports.talks = [
 {
+  title: 'Non-Abelian Hodge Theory for Moduli Stacks',
+  events: [
+  {
+    event: 'Global Higgsy Seminar',
+    date: {
+      tag: cv_date.PeriodTag.SD,
+      date: { year: 2026, month: 1, day: 22 },
+    },
+    location: 'University of Saskatchewan'
+  },
+  ]
+},
+{
   title: 'Moduli Spaces of Arrows',
   events: [
   {
