@@ -52,6 +52,8 @@ ${marginTop ? '\\vspace{0.55em}' : ''}
 \\vspace{0.35em}
 `
 
+const italic = (text) => `{\\it ${text.replace('&', '\\&')}}`
+
 const entry = (title, desc, period, lines) => `
 \\noindent\\begin{tabularx}{\\textwidth}{
   @{}
@@ -59,7 +61,7 @@ const entry = (title, desc, period, lines) => `
   >{\\hsize=0.4\\linewidth\\raggedleft\\arraybackslash}X
   @{}
 }
-{\\bf ${title}}${desc ? ' ({\\it ' + desc + '})' : ''} & ${period ? periodToString(period) : ''}
+{\\bf ${title}}${desc ? ' (' + italic(desc) + ')' : ''} & ${period ? periodToString(period) : ''}
 \\end{tabularx}
 ${lines.filter(ln => ln !== undefined)
        .map(ln => ln)
@@ -88,7 +90,7 @@ ${orderLastName(pub.author)
   curr + (index > 0 ? (index < arr.length - 1 ? ', ' : ' and ') : '') + acc
 , '')}.
 ${pub.time.year}.
-{\\it ${pub.title}}.
+${italic(pub.title)}.
 ${(() => {
   switch(pub.where.tag) {
   case WhereTag.JOURNAL:
@@ -146,11 +148,11 @@ ${publications.map(publicationEntry)
 ${sectionHead('Talks')}
 ${talks.map(talk => talk.events.length === 1
   ? entry(talk.title, undefined, talk.events[0].date, [
-      `{\\it ${talk.events[0].event}}, ${talk.events[0].location}`
+      `${italic(talk.events[0].event)}, ${talk.events[0].location}`
     ])
   : entry(talk.title, undefined, undefined, [
       entrySubList(talk.events.map(e => ({
-        desc: `{\\it ${e.event}}, ${e.location}`,
+        desc: `${italic(e.event)}, ${e.location}`,
         period: e.date
       })))
     ])
@@ -165,9 +167,9 @@ ${awards.map(award =>
         award.period,
         [
           (award.authority
-            ? 'Awarded by {\\it ' + award.authority + '} at '
+            ? 'Awarded by ' + italic(award.authority) + ' at '
             : '')
-          + '{\\it ' + award.institution + '}'
+          + italic(award.institution)
           + (award.endNote ? ', ' + award.endNote : '')
         ])
 ).join(entrySep)}
@@ -175,13 +177,13 @@ ${awards.map(award =>
 ${sectionHead('Service')}
 ${services.map(service => entry(service.description, undefined, service.period,
   [
-  `{\\it ${service.event}}${service.location ? ', ' + service.location : ''}`
+  `${italic(service.event)}${service.location ? ', ' + service.location : ''}`
   ])
 ).join(entrySep)}
 
 ${sectionHead('Work')}
 ${work.map(w => entry(w.position, w.description, w.period, [
-    `{\\it ${w.institution}}${w.endNote ? ', ' + w.endNote : ''}`
+    `${italic(w.institution)}${w.endNote ? ', ' + w.endNote : ''}`
   ])
 ).join(entrySep)}
 
