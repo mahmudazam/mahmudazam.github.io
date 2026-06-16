@@ -9,6 +9,18 @@ function orderLastName(authors) {
 
 const publications = [
 {
+  title: 'A diffeological perspective on non-Abelian Hodge theory',
+  author: ['Mahmud Azam', 'Steven Rayan'],
+  where: {
+    tag: WhereTag.INREVIEW,
+    preprintURL :{
+      path: 'https://arxiv.org/abs/2606.16772',
+      display: 'arXiv:2606.16772',
+    },
+  },
+  time: { year: 2026 },
+},
+{
   title: 'Moduli stacks of quiver connections and non-Abelian Hodge theory',
   author: ['Mahmud Azam', 'Steven Rayan'],
   where: {
