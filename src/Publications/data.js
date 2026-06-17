@@ -50,7 +50,7 @@ const publications = [
       display: 'arXiv:2407.11958',
     },
   },
-  time: { year: 2024 },
+  time: { year: 2026 },
 },
 {
   title: 'TQFTs and quantum computing',
