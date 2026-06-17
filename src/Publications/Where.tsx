@@ -12,6 +12,7 @@ export interface Journal {
   volume: number,
   number: number,
   pages: { from : number, to : number },
+  URL?: { path: string, display: string },
   preprintURL?: { path: string, display : string },
 }
 
@@ -39,14 +40,23 @@ export function whereToJSX(where: Where) {
     return (<span>
       <Latex>{where.name}</Latex>
       , {where.volume}{where.number && `(${where.number})`}
-      : page {where.pages.from}{where.pages.to && '---' + where.pages.to}
-      . {where.preprintURL && (
-          <span>
-            <a href={where.preprintURL.path}>
-              {where.preprintURL.display}
-            </a>
-          </span>
-      )}
+      : page {where.pages.from}{where.pages.to && ' --- ' + where.pages.to}.
+      <div style={{ display: 'flex', gap: '1em' }}>
+        {where.URL && (
+            <span>
+              <a href={where.URL.path}>
+                {where.URL.display}
+              </a>
+            </span>
+        )}
+        {where.preprintURL && (
+            <span>
+              <a href={where.preprintURL.path}>
+                {where.preprintURL.display}
+              </a>
+            </span>
+        )}
+      </div>
     </span>)
   case WhereTag.INREVIEW:
     return (

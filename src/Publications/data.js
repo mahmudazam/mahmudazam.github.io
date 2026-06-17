@@ -36,7 +36,15 @@ const publications = [
   title: 'Moduli stacks of quiver bundles with applications to Higgs bundles',
   author: ['Mahmud Azam', 'Steven Rayan'],
   where: {
-    tag: WhereTag.INREVIEW,
+    tag: WhereTag.JOURNAL,
+    name: 'Journal of Algebra',
+    volume: 708,
+    pages: { from: 333, to: 379 },
+    time: { year: 2026 },
+    URL: {
+      path: 'https://doi.org/10.1016/j.jalgebra.2026.05.018',
+      display: 'J. Alg.'
+    },
     preprintURL :{
       path: 'https://arxiv.org/abs/2407.11958',
       display: 'arXiv:2407.11958',
