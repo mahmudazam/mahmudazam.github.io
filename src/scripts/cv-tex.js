@@ -98,13 +98,16 @@ ${(() => {
       + (pub.where.number ? ('(' + pub.where.number + ')') : '') + ': page '
       + pub.where.pages.from
       + (pub.where.pages.to ? ('---' + pub.where.pages.to) : '')
-      + '.'
-      + (pub.where.preprintURL ? `\\\\\\href{${pub.where.preprintURL.path}}`
-                                 + `{${pub.where.preprintURL.display}}`
+      + '.' + (pub.where.URL ? `\\\\` : (pub.where.preprintURL ? `\\\\` : ''))
+      + (pub.where.URL ? `\\href{${pub.where.URL.path}}`
+                                 + `{${pub.where.URL.display}}`
+                               : '')
+      + (pub.where.preprintURL ? `${pub.where.URL ? `\\hspace{1em}` : ''}
+                                  \\href{${pub.where.preprintURL.path}}
+                                  {${pub.where.preprintURL.display}}`
                                : '')
   case WhereTag.INREVIEW:
-    return `In review (preprint: \\href{${pub.where.preprintURL.path}}`
-                                    + `{${pub.where.preprintURL.display}}).`
+    return `In review.\\\\\\href{${pub.where.preprintURL.path}}{${pub.where.preprintURL.display}}`
   }
 })()}
 `
