@@ -61,6 +61,10 @@ const publications = [
     volume: 194,
     pages: { from : 103454 },
     time: { year: 2024 },
+    URL: {
+      path: 'https://doi.org/10.1016/j.bulsci.2024.103454',
+      display: 'Bul. Sci. Math.'
+    },
     preprintURL: {
       path: 'https://arxiv.org/abs/2210.03556',
       display: 'arXiv:2210.03556',
@@ -76,7 +80,11 @@ const publications = [
     name: 'Canadian Mathematical Bulletin',
     volume: 65,
     number: 3,
-    pages: { from: 665, to: 673 }
+    pages: { from: 665, to: 673 },
+    URL: {
+      path: 'https://doi.org/10.4153/S0008439521000527',
+      display: 'Can. Math. Bul.'
+    }
   },
   time: { year: 2021, month: 7, day: 14 },
 },

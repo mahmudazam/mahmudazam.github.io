@@ -60,16 +60,18 @@ export function whereToJSX(where: Where) {
     </span>)
   case WhereTag.INREVIEW:
     return (
-      <span>
-        In review
-        {where.preprintURL && (
-          <span>
-            {' '}(preprint: <a href={where.preprintURL.path}>
-              {where.preprintURL.display}
-            </a>)
-          </span>
-        )}.
-      </span>
+      <>
+        <span>In review.</span>
+        <div>
+          {where.preprintURL && (
+            <span>
+              <a href={where.preprintURL.path}>
+                {where.preprintURL.display}
+              </a>
+            </span>
+          )}
+        </div>
+      </>
     )
   default:
     matchError(where)
