@@ -71,7 +71,7 @@ exports.talks = [
   title: 'TQFTs and Quantum Computing',
   events: [
   {
-    event: 'Math. Apects of Quantum Sc. and Tech., CMS Summer Meeting',
+    event: 'Math. Aspects of Quantum Sc. and Tech., CMS Summer Meeting',
     date: {
       tag: cv_date.PeriodTag.SD,
       date: { year: 2024, month: 6, day: 2 },
