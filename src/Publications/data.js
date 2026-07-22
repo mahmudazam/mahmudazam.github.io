@@ -9,6 +9,18 @@ function orderLastName(authors) {
 
 const publications = [
 {
+  title: 'Diffeological non-Abelian Hodge theory: relative harmonic metrics and deformation theory',
+  author: ['Mahmud Azam', 'Steven Rayan'],
+  where: {
+    tag: WhereTag.INREVIEW,
+    preprintURL :{
+      path: 'https://arxiv.org/abs/2607.18989',
+      display: 'arXiv:2607.18989',
+    },
+  },
+  time: { year: 2026 },
+},
+{
   title: 'A diffeological perspective on non-Abelian Hodge theory',
   author: ['Mahmud Azam', 'Steven Rayan'],
   where: {
