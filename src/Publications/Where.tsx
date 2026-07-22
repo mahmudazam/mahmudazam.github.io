@@ -34,43 +34,32 @@ function matchError(n: never) : never {
   throw new Error('Where: Error in pattern matching')
 }
 
+function preprint(preprintURL: any) {
+  return (
+    <li>
+      Preprint: <a href={preprintURL.path}>{preprintURL.display}</a>
+    </li>
+  )
+}
+
 export function whereToJSX(where: Where) {
   switch(where.tag) {
   case WhereTag.JOURNAL:
-    return (<span>
-      <Latex>{where.name}</Latex>
-      , {where.volume}{where.number && `(${where.number})`}
-      : page {where.pages.from}{where.pages.to && ' --- ' + where.pages.to}.
-      <div style={{ display: 'flex', gap: '1em' }}>
-        {where.URL && (
-            <span>
-              <a href={where.URL.path}>
-                {where.URL.display}
-              </a>
-            </span>
-        )}
-        {where.preprintURL && (
-            <span>
-              <a href={where.preprintURL.path}>
-                {where.preprintURL.display}
-              </a>
-            </span>
-        )}
-      </div>
-    </span>)
+    const journalText = (<>
+        <Latex>{where.name}</Latex>
+        , {where.volume}{where.number && `(${where.number})`}
+        , p. {where.pages.from}{where.pages.to && ' - ' + where.pages.to}.
+    </>)
+    return (<>
+      <li>
+        Journal: {where.URL ? (<a href={where.URL.path}>{journalText}</a>) : journalText}
+      </li>
+      {where.preprintURL && preprint(where.preprintURL)}
+    </>)
   case WhereTag.INREVIEW:
     return (
       <>
-        <span>In review.</span>
-        <div>
-          {where.preprintURL && (
-            <span>
-              <a href={where.preprintURL.path}>
-                {where.preprintURL.display}
-              </a>
-            </span>
-          )}
-        </div>
+        {where.preprintURL && preprint(where.preprintURL)}
       </>
     )
   default:

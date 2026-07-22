@@ -5,24 +5,29 @@ import { whereToJSX } from './Where'
 import _basicPage from '../Common/BasicPage.module.css'
 const {main : basicPage} = _basicPage
 
-var Latex = require('react-latex')
 
 function Publications() {
   return (
   <div className={basicPage}>
+  <ol>
   {publications.map((pub, index) =>
-    <div key={index} className="mb-4">
-    {(index + 1)}
-    . With {orderLastName(pub.author)
-        .filter(auth => auth !== 'Mahmud Azam')
-        .map((auth, authInd, arr) =>
-          auth + (authInd < arr.length - 1 ? ' and ' : '')
-        )}
-    . {pub.time.year}
-    . <span className="italic"><Latex>{pub.title}</Latex></span>
-    . {whereToJSX(pub.where)}
-    </div>
-  )}
+    <li key={index} className="mb-4">
+      <span className="italic">{pub.title} </span>
+      <span className="block lg:inline">
+      (with {orderLastName(pub.author)
+      .filter(auth => auth !== 'Mahmud Azam')
+      .map((auth, authInd, arr) =>
+        auth + (authInd < arr.length - 1 ? ' and ' : '')
+      )})
+      </span>
+      <ul className="list-disc pl-4">
+        <li>
+        Year: {pub.time.year}
+        </li>
+        {whereToJSX(pub.where)}
+      </ul>
+  </li>)}
+  </ol>
   </div>
   )
 }

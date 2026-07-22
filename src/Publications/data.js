@@ -69,7 +69,7 @@ const publications = [
   author: ['Mahmud Azam', 'Steven Rayan'],
   where: {
     tag: WhereTag.JOURNAL,
-    name: 'Bulletin des Sciences Math$\\text{\\\'{e}}$matiques',
+    name: 'Bulletin des Sciences Math\u00e9matiques',
     volume: 194,
     pages: { from : 103454 },
     time: { year: 2024 },

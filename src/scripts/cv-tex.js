@@ -83,19 +83,20 @@ ${entries.map((e, index) =>
 `
 
 const publicationEntry = (pub) => `
-\\item With
+\\item
+${italic(pub.title)}.
+${pub.author.length > 1 ? 'With ' : ''}
 ${orderLastName(pub.author)
   .filter(auth => auth !== 'Mahmud Azam')
   .reduce((acc, curr, index, arr) =>
-  curr + (index > 0 ? (index < arr.length - 1 ? ', ' : ' and ') : '') + acc
-, '')}.
+    curr + (index > 0 ? (index < arr.length - 1 ? ', ' : ' and ') : '') + acc
+    , '') + (pub.author.length > 1 ? '.' : '')}
 ${pub.time.year}.
-${italic(pub.title)}.
 ${(() => {
   switch(pub.where.tag) {
   case WhereTag.JOURNAL:
     return `${pub.where.name}, ${pub.where.volume}`
-      + (pub.where.number ? ('(' + pub.where.number + ')') : '') + ': page '
+      + (pub.where.number ? ('(' + pub.where.number + ')') : '') + ', p. '
       + pub.where.pages.from
       + (pub.where.pages.to ? ('---' + pub.where.pages.to) : '')
       + '.' + (pub.where.URL ? `\\\\` : (pub.where.preprintURL ? `\\\\` : ''))
