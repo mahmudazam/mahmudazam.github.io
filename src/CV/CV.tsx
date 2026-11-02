@@ -7,6 +7,7 @@ import {
 import {
   education,
   talks,
+  teaching,
   services,
   awards,
   work,
@@ -139,6 +140,22 @@ function CV() {
       )}
     </CVSection>
 
+    <CVSection title='Teaching and Related Experience'>
+      {teaching.map((w, index) =>
+        <CVEntry
+          key={index}
+          title={w.position}
+          description={w.description}
+          period={w.period}
+        >
+          <div>
+            <span className="italic">{w.institution}</span>
+            {w.endNote && <span>, {w.endNote}</span>}
+          </div>
+        </CVEntry>
+      )}
+    </CVSection>
+
     <CVSection title='Awards'>
       {awards.map((award, index) =>
         <CVEntry
@@ -185,7 +202,7 @@ function CV() {
       )}
     </CVSection>
 
-    <CVSection title='Work'>
+    <CVSection title='Work Experience'>
       {work.map((w, index) =>
         <CVEntry
           key={index}

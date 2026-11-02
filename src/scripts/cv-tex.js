@@ -5,6 +5,7 @@ const {
   education,
   awards,
   talks,
+  teaching,
   services,
   work,
   activities
@@ -162,6 +163,14 @@ ${talks.map(talk => talk.events.length === 1
     ])
 ).join(entrySep)}
 
+${sectionHead('Teaching and Related Experience')}
+${teaching.map(t => entry(t.position, t.description, t.period, [
+    `${italic(t.institution)}${t.endNote ? ', ' + t.endNote : ''}`
+  ])
+).join(entrySep)}
+
+\\pagebreak
+
 ${sectionHead('Awards')}
 ${awards.map(award =>
   entry(award.name.replace('&', '\\&'),
@@ -185,16 +194,16 @@ ${services.map(service => entry(service.description, undefined, service.period,
   ])
 ).join(entrySep)}
 
-${sectionHead('Work')}
-${work.map(w => entry(w.position, w.description, w.period, [
-    `${italic(w.institution)}${w.endNote ? ', ' + w.endNote : ''}`
-  ])
-).join(entrySep)}
-
 ${sectionHead('Activities')}
 ${activities.map(a => entry(a.activity, undefined, a.period, [
     a.where,
     a.description
+  ])
+).join(entrySep)}
+
+${sectionHead('Work Experience')}
+${work.map(w => entry(w.position, w.description, w.period, [
+    `${italic(w.institution)}${w.endNote ? ', ' + w.endNote : ''}`
   ])
 ).join(entrySep)}
 

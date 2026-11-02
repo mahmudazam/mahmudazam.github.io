@@ -11,7 +11,7 @@ exports.education = [
   },
   institution: 'University of Saskatchewan',
   supervisor: 'Dr. Steven Rayan',
-  thesis: 'Moduli Stacks, non-Abelian Hodge theory, and QFTs (tentative)',
+  thesis: 'Non-Abelian Hodge Theory for Diffeological Moduli Stacks (tentative)',
   completed: false,
 },
 {
@@ -121,6 +121,69 @@ exports.talks = [
     location: 'University of Calgary'
   },
   ],
+},
+]
+
+exports.teaching = [
+{
+  position: 'Sessional Instructor',
+  description: 'MATH 164: Introduction to Linear Algebra',
+  institution: 'University of Saskatchewan',
+  period: {
+    tag: cv_date.PeriodTag.TY,
+    term: 'Winter',
+    year: 2027,
+  },
+},
+{
+  position: 'Marker',
+  description: 'MATH 460/872: Galois Theory',
+  institution: 'University of Saskatchewan',
+  period: {
+    tag: cv_date.PeriodTag.TY,
+    term: 'Winter',
+    year: 2026,
+  },
+},
+{
+  position: 'Marker',
+  description: 'MATH 450/872: Algebraic Geometry through Moduli',
+  institution: 'University of Saskatchewan',
+  period: {
+    tag: cv_date.PeriodTag.TY,
+    term: 'Fall',
+    year: 2024,
+  },
+},
+{
+  position: 'Teaching Assistant',
+  description: 'MAT 137: Calculus with Proofs',
+  institution: 'University of Toronto',
+  period: {
+    tag: cv_date.PeriodTag.SE,
+    start: { year: 2021, month: 9, day: 1 },
+    end: { year: 2022, month: 4, day: 31 },
+  },
+},
+{
+  position: 'Marker',
+  description: 'MATH 266: Linear Algebra I',
+  institution: 'University of Saskatchewan',
+  period: {
+    tag: cv_date.PeriodTag.TY,
+    term: 'Winter',
+    year: 2021,
+  },
+},
+{
+  position: 'Marker',
+  description: 'MATH 163: Introduction to Mathematical Reasoning',
+  institution: 'University of Saskatchewan',
+  period: {
+    tag: cv_date.PeriodTag.TY,
+    term: 'Fall',
+    year: 2020,
+  },
 },
 ]
 
@@ -375,46 +438,6 @@ exports.awards = [
 ]
 
 exports.work = [
-{
-  position: 'Marker',
-  description: 'MATH 450/872: Algebraic Geometry through Moduli',
-  institution: 'University of Saskatchewan',
-  period: {
-    tag: cv_date.PeriodTag.TY,
-    term: 'Fall',
-    year: 2024,
-  },
-},
-{
-  position: 'Teaching Assistant',
-  description: 'MAT 137: Calculus with Proofs',
-  institution: 'University of Toronto',
-  period: {
-    tag: cv_date.PeriodTag.SE,
-    start: { year: 2021, month: 9, day: 1 },
-    end: { year: 2022, month: 4, day: 31 },
-  },
-},
-{
-  position: 'Marker',
-  description: 'MATH 266: Linear Algebra I',
-  institution: 'University of Saskatchewan',
-  period: {
-    tag: cv_date.PeriodTag.TY,
-    term: 'Winter',
-    year: 2021,
-  },
-},
-{
-  position: 'Marker',
-  description: 'MATH 163: Introduction to Mathematical Reasoning',
-  institution: 'University of Saskatchewan',
-  period: {
-    tag: cv_date.PeriodTag.TY,
-    term: 'Fall',
-    year: 2020,
-  },
-},
 {
   position: 'Software Developer Intern',
   institution: 'Vecima Networks',

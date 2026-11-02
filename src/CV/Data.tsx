@@ -58,6 +58,8 @@ export const education : Array<EducationEntry> = data.education
 
 export const talks : Array<Talk> = data.talks
 
+export const teaching : Array<Work> = data.teaching
+
 export const services : Array<Service> = data.services
 
 export const awards : Array<Award> = data.awards
