@@ -22,6 +22,11 @@ function About() {
   </a>, or <a href="https://arxiv.org/abs/2405.07936">
     that of Ben-Bassat-Kelly-Kremnitzer
   </a>.
+  Here is a link to my <a href="/MahmudAzam_Postdoctoral_Research_Proposal.pdf">
+    postdoctoral research statement
+  </a> and here is a more <a href="/MahmudAzam_Postdoctoral_Research_Proposal_Short.pdf">
+    concise version
+  </a>.
   </p>
 
   <p>

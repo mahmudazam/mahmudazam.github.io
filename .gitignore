@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 cv-pdf/*
-public/*.pdf
+public/MahmudAzam.pdf
 public/sitemap.xml
