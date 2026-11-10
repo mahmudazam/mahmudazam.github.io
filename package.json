@@ -25,6 +25,7 @@
     "zustand": "^4.4.7"
   },
   "scripts": {
+    "build-cv-pdf-dev": "cd ./cv-pdf; pdflatex MahmudAzam.tex; cp MahmudAzam.pdf ../public; cd ..",
     "build-cv-tex": "node ./src/scripts/cv-tex.js ./cv-pdf",
     "build-sitemap": "node ./src/scripts/sitemap-gen.js ./public",
     "start": "react-scripts start",

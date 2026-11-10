@@ -19,6 +19,7 @@ export interface Journal {
 export interface InReview {
   readonly tag: WhereTag.INREVIEW,
   preprintURL?: { path : string, display : string },
+  submitted?: { journal : string, since : { year : number, month : number, day : number } }
 }
 
 export type Where = Journal | InReview

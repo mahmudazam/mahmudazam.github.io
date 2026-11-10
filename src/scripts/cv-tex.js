@@ -18,6 +18,7 @@ const {
 const { WhereTag } = require('../Publications/where')
 
 const {
+  simpleDateToString,
   periodToString,
 } = require('../CV/cv_date.js')
 
@@ -83,6 +84,11 @@ ${entries.map((e, index) =>
 \\end{tabularx}
 `
 
+const submittedString = (where) => `\
+${where.submitted.journal}, since \
+${simpleDateToString(where.submitted.since)}\
+`
+
 const publicationEntry = (pub) => `
 \\item
 ${italic(pub.title)}.
@@ -109,7 +115,7 @@ ${(() => {
                                   {${pub.where.preprintURL.display}}`
                                : '')
   case WhereTag.INREVIEW:
-    return `In review.\\\\\\href{${pub.where.preprintURL.path}}{${pub.where.preprintURL.display}}`
+    return `In review: ${submittedString(pub.where)}.\\\\\\href{${pub.where.preprintURL.path}}{${pub.where.preprintURL.display}}`
   }
 })()}
 `
@@ -168,8 +174,6 @@ ${teaching.map(t => entry(t.position, t.description, t.period, [
     `${italic(t.institution)}${t.endNote ? ', ' + t.endNote : ''}`
   ])
 ).join(entrySep)}
-
-\\pagebreak
 
 ${sectionHead('Awards')}
 ${awards.map(award =>

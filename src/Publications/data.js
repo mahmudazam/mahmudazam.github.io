@@ -17,6 +17,14 @@ const publications = [
       path: 'https://arxiv.org/abs/2607.18989',
       display: 'arXiv:2607.18989',
     },
+    submitted: {
+        journal: 'Annals of Mathematics',
+        since: {
+            year: 2026,
+            month: 7,
+            day: 23
+        }
+    },
   },
   time: { year: 2026 },
 },
@@ -29,6 +37,14 @@ const publications = [
       path: 'https://arxiv.org/abs/2606.16772',
       display: 'arXiv:2606.16772',
     },
+    submitted: {
+        journal: 'Journal of Differential Geometry',
+        since: {
+            year: 2026,
+            month: 6,
+            day: 15
+        }
+    },
   },
   time: { year: 2026 },
 },
@@ -40,6 +56,14 @@ const publications = [
     preprintURL :{
       path: 'https://arxiv.org/abs/2512.12188',
       display: 'arXiv:2512.12188',
+    },
+    submitted: {
+        journal: 'Advances in Mathematics',
+        since: {
+            year: 2026,
+            month: 6,
+            day: 8
+        }
     },
   },
   time: { year: 2025 },
