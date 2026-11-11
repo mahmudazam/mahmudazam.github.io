@@ -195,9 +195,64 @@ exports.services = [
     tag: cv_date.PeriodTag.DE,
     description: 'June 2 --- June 3, 2024'
   },
-  event: 'CMS Summer Meeting',
+  context: 'CMS Summer Meeting',
   location: 'University of Saskatchewan'
-}
+},
+{
+  description: 'Vice President Finance',
+  period: {
+    tag: cv_date.PeriodTag.SE,
+    start: { year: 2020, month: 9, day: 1 },
+    end: { year: 2021, month: 4, day: 31 },
+  },
+  context: 'Mathematics and Statistics Student Society',
+  location: 'University of Saskatchewan'
+},
+]
+
+exports.conferences = [
+{
+  name: '2nd Simons Math Summer Workshop: Moduli, Simons Center for Geometry and Physics, Stonybrook',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'July 2 --- 19, 2024'
+  }
+},
+{
+  name: 'CMS Summer Meeting, University of Saskatchewan',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'May 31 --- June 3, 2024'
+  }
+},
+{
+  name: 'Arithmetic Quantum Field Theory Conference, CMSA, Harvard University',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'March 25 --- 29, 2024'
+  }
+},
+{
+  name: 'Worskshop on p-Adic Arithmetic Geometry (Spring), Institute for Advanced Study',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'March 11 --- 15, 2024'
+  }
+},
+{
+  name: 'Workshop and school on Complex Lagrangians, Integrable Systems, and Quantization, University of Oxford',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'June 5 --- 9, 2023'
+  }
+},
+{
+  name: 'CMS Summer Meeting, University of Ottawa',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'June 2 --- 3, 2023'
+  }
+},
 ]
 
 exports.awards = [
@@ -451,16 +506,6 @@ exports.work = [
 ]
 
 exports.activities = [
-{
-  activity: 'Vice President Finance',
-  where: `Mathematics and Statistics Student Society,
-          University of Saskatchewan`,
-  period: {
-    tag: cv_date.PeriodTag.SE,
-    start: { year: 2020, month: 9, day: 1 },
-    end: { year: 2021, month: 4, day: 31 },
-  },
-},
 {
   activity: 'USask Programming Contests',
   period: {

@@ -9,6 +9,7 @@ import {
   talks,
   teaching,
   services,
+  conferences,
   awards,
   work,
   activities,
@@ -29,13 +30,14 @@ export function CVEntry(props : {
   title: string,
   description?: string,
   period?: Period,
+  normalFontTitle?: boolean,
   children: any
 }) {
-  const { title, description, period, children } = props
+  const { title, description, period, normalFontTitle, children } = props
   return (
     <div className="mt-2">
       <span className="inline-block md:w-3/5 w-full">
-      <span className="font-bold">{title}</span>
+      <span className={normalFontTitle ? "" : "font-bold"}>{title}</span>
         {description &&
           <span className="max-sm:hidden">
             {' '}(<span className="italic">{description}</span>)
@@ -51,6 +53,21 @@ export function CVEntry(props : {
         </div>
       }
       {children}
+    </div>
+  )
+}
+
+export function OnelineCVEntry(props : {
+  title: string,
+  period?: Period,
+}) {
+  const { title, period } = props
+  return (
+    <div className="mt-2 md:mt-0">
+      <span className="inline-block md:w-4/5 w-full">{title}</span>
+      {period && <span className="inline-block md:w-1/5 w-full md:text-end">
+        {periodToString(period)}
+      </span>}
     </div>
   )
 }
@@ -195,10 +212,20 @@ function CV() {
           period={service.period}
         >
         <div>
-        <span className="italic">{service.event}</span>
+        <span className="italic">{service.context}</span>
         {service.location && <span>, {service.location}</span>}
         </div>
         </CVEntry>
+      )}
+    </CVSection>
+
+    <CVSection title='Conference Participation'>
+      {conferences.map((conference, index) =>
+        <OnelineCVEntry
+          key={index}
+          title={conference.name}
+          period={conference.period}
+        />
       )}
     </CVSection>
 

@@ -7,6 +7,7 @@ const {
   talks,
   teaching,
   services,
+  conferences,
   work,
   activities
 } = require('../CV/data.js')
@@ -50,6 +51,7 @@ ${[
 const sectionHead = (title, marginTop = true) => `
 ${marginTop ? '\\vspace{0.55em}' : ''}
 {\\noindent\\bf ${title}}${entrySep}
+\\vspace{-0.15em}
 \\hrule
 \\vspace{0.35em}
 `
@@ -68,6 +70,17 @@ const entry = (title, desc, period, lines) => `
 ${lines.filter(ln => ln !== undefined)
        .map(ln => ln)
        .join(NL + '\n')}
+`
+
+const oneline_entry = (title, period) => `
+\\noindent\\begin{tabularx}{\\textwidth}{
+  @{}
+  >{\\hsize=${period.description.length > 20 ? 0.8 : 0.85}\\linewidth\\arraybackslash}X
+  >{\\hsize=${period.description.length > 20 ? 0.2 : 0.15}\\linewidth\\raggedleft\\arraybackslash}X
+  @{}
+}
+{${title}} & ${period ? periodToString(period) : ''}
+\\end{tabularx}
 `
 
 const entrySubList = (entries) => `
@@ -194,9 +207,13 @@ ${awards.map(award =>
 ${sectionHead('Service')}
 ${services.map(service => entry(service.description, undefined, service.period,
   [
-  `${italic(service.event)}${service.location ? ', ' + service.location : ''}`
+  `${italic(service.context)}${service.location ? ', ' + service.location : ''}`
   ])
 ).join(entrySep)}
+
+${sectionHead('Conference Participation')}
+${conferences.map(conference => oneline_entry(conference.name, conference.period)
+).join('\n')}
 
 ${sectionHead('Activities')}
 ${activities.map(a => entry(a.activity, undefined, a.period, [
