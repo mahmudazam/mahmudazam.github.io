@@ -128,7 +128,7 @@ ${(() => {
                                   {${pub.where.preprintURL.display}}`
                                : '')
   case WhereTag.INREVIEW:
-    return `In review: ${submittedString(pub.where)}.\\\\\\href{${pub.where.preprintURL.path}}{${pub.where.preprintURL.display}}`
+    return `${pub.where.submitted ? 'In review: ' + submittedString(pub.where) + '.' : ''}\\\\\\href{${pub.where.preprintURL.path}}{${pub.where.preprintURL.display}}`
   }
 })()}
 `
@@ -210,6 +210,8 @@ ${services.map(service => entry(service.description, undefined, service.period,
   `${italic(service.context)}${service.location ? ', ' + service.location : ''}`
   ])
 ).join(entrySep)}
+
+\\pagebreak
 
 ${sectionHead('Conference Participation')}
 ${conferences.map(conference => oneline_entry(conference.name, conference.period)

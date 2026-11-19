@@ -9,6 +9,18 @@ function orderLastName(authors) {
 
 const publications = [
 {
+  title: 'Finite regularity moduli stacks through diffeology',
+  author: ['Mahmud Azam', 'Steven Rayan'],
+  where: {
+    tag: WhereTag.INREVIEW,
+    preprintURL :{
+      path: 'https://arxiv.org/abs/2611.23451',
+      display: 'arXiv:2611.23451',
+    },
+  },
+  time: { year: 2026 },
+},
+{
   title: 'Diffeological non-Abelian Hodge theory: relative harmonic metrics and deformation theory',
   author: ['Mahmud Azam', 'Steven Rayan'],
   where: {
