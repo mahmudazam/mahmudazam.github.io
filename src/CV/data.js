@@ -210,6 +210,23 @@ exports.services = [
 },
 ]
 
+exports.visits = [
+{
+  description: 'CEA Saclay, Paris (funded by France-Canada HLSF), hosted by Dr. Antoine Bourget',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'October 2 --- November 29, 2024'
+  }
+},
+{
+  description: 'Institute for Advanced Study, Princeton, hosted by Dr. Toni Annala',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'March 10 --- 23, 2024'
+  }
+},
+]
+
 exports.conferences = [
 {
   name: '2nd Simons Math Summer Workshop: Moduli, Simons Center for Geometry and Physics, Stonybrook',
@@ -506,6 +523,14 @@ exports.work = [
 ]
 
 exports.activities = [
+{
+  activity: 'GenQ Hackathon, Calgary',
+  period: {
+    tag: cv_date.PeriodTag.DE,
+    description: 'October 3 --- 5, 2025'
+  },
+  description: 'Our team (quanTA) won the Electricity Grid Management challenge'
+},
 {
   activity: 'USask Programming Contests',
   period: {

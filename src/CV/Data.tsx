@@ -28,6 +28,11 @@ interface Service {
   location?: string,
 }
 
+interface Visit {
+  description: string,
+  period: Period,
+}
+
 interface Conference {
   name: string,
   period: Period,
@@ -66,6 +71,8 @@ export const talks : Array<Talk> = data.talks
 export const teaching : Array<Work> = data.teaching
 
 export const services : Array<Service> = data.services
+
+export const visits : Array<Visit> = data.visits
 
 export const conferences : Array<Conference> = data.conferences
 

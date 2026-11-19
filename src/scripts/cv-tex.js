@@ -7,6 +7,7 @@ const {
   talks,
   teaching,
   services,
+  visits,
   conferences,
   work,
   activities
@@ -75,8 +76,8 @@ ${lines.filter(ln => ln !== undefined)
 const oneline_entry = (title, period) => `
 \\noindent\\begin{tabularx}{\\textwidth}{
   @{}
-  >{\\hsize=${period.description.length > 20 ? 0.8 : 0.85}\\linewidth\\arraybackslash}X
-  >{\\hsize=${period.description.length > 20 ? 0.2 : 0.15}\\linewidth\\raggedleft\\arraybackslash}X
+  >{\\hsize=${period.description.length > 20 ? 0.75 : 0.85}\\linewidth\\arraybackslash}X
+  >{\\hsize=${period.description.length > 20 ? 0.25 : 0.15}\\linewidth\\raggedleft\\arraybackslash}X
   @{}
 }
 {${title}} & ${period ? periodToString(period) : ''}
@@ -212,6 +213,10 @@ ${services.map(service => entry(service.description, undefined, service.period,
 ).join(entrySep)}
 
 \\pagebreak
+
+${sectionHead('Research Visits')}
+${visits.map(visit => oneline_entry(visit.description, visit.period)
+).join('\n')}
 
 ${sectionHead('Conference Participation')}
 ${conferences.map(conference => oneline_entry(conference.name, conference.period)

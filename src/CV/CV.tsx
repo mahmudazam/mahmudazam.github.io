@@ -9,6 +9,7 @@ import {
   talks,
   teaching,
   services,
+  visits,
   conferences,
   awards,
   work,
@@ -62,10 +63,15 @@ export function OnelineCVEntry(props : {
   period?: Period,
 }) {
   const { title, period } = props
+  const periodString = period !== undefined ? periodToString(period) : ''
+  const periodSize = periodString.length > 21 ? 2 : 1
+  const titleSize = 5 - periodSize
+  const titleClassName = `inline-block md:w-${titleSize}/5 w-full`
+  const periodClassName = `inline-block md:w-${periodSize}/5 w-full md:text-end`
   return (
     <div className="mt-2 md:mt-0">
-      <span className="inline-block md:w-4/5 w-full">{title}</span>
-      {period && <span className="inline-block md:w-1/5 w-full md:text-end">
+      <span className={titleClassName}>{title}</span>
+      {period && <span className={periodClassName}>
         {periodToString(period)}
       </span>}
     </div>
@@ -216,6 +222,16 @@ function CV() {
         {service.location && <span>, {service.location}</span>}
         </div>
         </CVEntry>
+      )}
+    </CVSection>
+
+    <CVSection title='Research Visits'>
+      {visits.map((visit, index) =>
+        <OnelineCVEntry
+          key={index}
+          title={visit.description}
+          period={visit.period}
+        />
       )}
     </CVSection>
 
